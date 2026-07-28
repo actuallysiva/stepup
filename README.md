@@ -1,3 +1,27 @@
+# Shoe
+
+A full-stack e-commerce web application for shoe shopping.
+
+## Tech Stack
+
+### Frontend
+- React
+- Vite
+
+### Backend
+- Django
+- Django REST Framework
+- MySQL
+
+## Project Structure
+
+```text
+Shoe/
+├── backend/
+├── stepup/
+└── README.md
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
