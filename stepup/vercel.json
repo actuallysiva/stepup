@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://stepup-production-a990.up.railway.app/api/:path*"
+    },
+    {
+      "source": "/media/:path*",
+      "destination": "https://stepup-production-a990.up.railway.app/media/:path*"
+    }
+  ]
+}
