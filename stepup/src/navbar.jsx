@@ -1,78 +1,90 @@
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-export default function Navbar () {
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useApp } from './context/AppContext';
 
-   const navigate = useNavigate();
+export default function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { searchQuery, setSearchQuery, seller, theme, toggleTheme, user } = useApp();
+  const [localSearch, setLocalSearch] = useState(searchQuery);
 
-    return (
+  useEffect(() => {
+    setLocalSearch(searchQuery);
+  }, [searchQuery]);
 
-        <div className="navbar">
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchQuery(localSearch.trim());
+    navigate('/');
+  };
 
-            {/* LOGO */}
+  const isSellerPage = [
+    '/login',
+    '/regseller',
+    '/success-registration',
+    '/dashboardseller',
+    '/availablestockseller',
+    '/uploadstock',
+    '/success-stock',
+    '/current-orders',
+    '/password-recovery',
+    '/password-change'
+  ].some(path => location.pathname === path || location.pathname.startsWith(path + '/'));
 
-            <div className="logoCard">
+  return (
+    <div className="navbar">
+      <div className="logoCard">
+        <h2 onClick={() => { setSearchQuery(''); navigate('/'); }}>StepUP</h2>
+      </div>
 
-                <h2>StepUP</h2>
+      {!isSellerPage ? (
+        <>
+          <div className="navLinks">
+            <button type="button" className="navLinkBtn" onClick={() => { setSearchQuery(''); navigate('/'); }}>Home</button>
+            <button type="button" className="navLinkBtn" onClick={() => { setSearchQuery(''); navigate('/men'); }}>Men</button>
+            <button type="button" className="navLinkBtn" onClick={() => { setSearchQuery(''); navigate('/women'); }}>Women</button>
+            <button type="button" className="navLinkBtn" onClick={() => { setSearchQuery(''); navigate('/kids'); }}>Kids</button>
+          </div>
 
-            </div>
+          <form className="searchBar" onSubmit={handleSearch} style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+            <svg
+              className="searchIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              style={{
+                position: 'absolute',
+                left: '14px',
+                width: '18px',
+                height: '18px',
+                color: '#9ca3af',
+                pointerEvents: 'none'
+              }}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.604 10.604Z" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search shoes..."
+              value={localSearch}
+              onChange={(e) => setLocalSearch(e.target.value)}
+              style={{ paddingLeft: '42px' }}
+            />
+          </form>
 
-            {/* NAV LINKS */}
-
-            <div className="navLinks">
-
-                <Link to='/'>Home</Link>
-
-                <Link to='/men'>Men</Link>
-
-                <Link to='/women'>Women</Link>
-
-                <Link to='/kids'>Kids</Link>
-
-            </div>
-
-            {/* SEARCH */}
-
-            <div className="searchBar">
-
-                <input
-                    type="text"
-                    placeholder="Search shoes..."
-                />
-
-            </div>
-
-            {/* ACTION BUTTONS */}
-
-            <div className="sidebuttons">
-
-                <button onClick={()=>navigate('/login/')}>
-                    Seller?
-                </button>
-
-                <button
-                    type="button"
-                    onClick={()=>navigate('/wishlist')}
-                >
-                    ❤️
-                </button>
-
-                <button
-                    type="button"
-                    onClick={()=>navigate('/cart')}
-                >
-                    🛒
-                </button>
-
-                <button
-                    type="button"
-                    onClick={()=>navigate('/userProfile')}
-                >
-                    Profile
-                </button>
-
-            </div>
-
-        </div>
-
-    );
+          <div className="sidebuttons">
+            <button type="button" onClick={toggleTheme} title="Toggle Theme">
+              {theme === 'light' ? '🌙' : '☀️'}
+            </button>
+            <button type="button" onClick={() => navigate('/login')}>Seller?</button>
+            <button type="button" onClick={() => user?.userid ? navigate('/wishlist') : navigate('/userLogin')}>❤️</button>
+            <button type="button" onClick={() => user?.userid ? navigate('/cart') : navigate('/userLogin')}>🛒</button>
+            <button type="button" onClick={() => user?.userid ? navigate('/userProfile') : navigate('/userLogin')}>Profile</button>
+          </div>
+        </>
+      ) : null}
+    </div>
+  );
 }

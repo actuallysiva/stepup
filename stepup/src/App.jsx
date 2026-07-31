@@ -12,9 +12,10 @@ import Kids from './kids.jsx'
 import Profile from './userProfile.jsx'
 
 import Verification from './verification.jsx'
+import UserLogin from './userLogin.jsx'
 import Personal from './personal-details.jsx'
 import Confirmation from './confirmation.jsx'
-import UPI from './upi.jsx'
+import Razorpay from './razorpay.jsx'
 import Success from './success.jsx'
 
 import Login from './login.jsx'
@@ -25,45 +26,44 @@ import AvailableStock from './availablestockseller.jsx'
 import Uploadstock from './uploadStock.jsx'
 import SuccessStock from './success-stock.jsx'
 
-
 import CurrentOrders from './current-orders.jsx'
 import PasswordRecovery from './password-recovery.jsx'
 import ChangePassword from './password-change.jsx'
 import CheckoutSteps from './step-component.jsx'
-function App() {
 
+function App() {
   return (
-    <>
-      <BrowserRouter>
-      <Navbar/>
+    <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/details' element={<Details/>}></Route>
-        <Route path='/cart' element={<Cart/>}></Route>
-        <Route path='/men' element={<Men/>}></Route>
-        <Route path='/women' element={<Women/>}></Route>
-        <Route path='/kids' element={<Kids/>}></Route>
-        <Route path='/wishlist' element={<Wishlist/>}></Route>
-        <Route path='/userProfile' element={<Profile/>}></Route>
-        <Route path='/verification' element={<Verification/>}></Route>
-        <Route path='/personal-details' element={<Personal/>}></Route>
-        <Route path='/confirmation' element={<Confirmation/>}></Route>
-        <Route path='/upi' element={<UPI/>}></Route>
-        <Route path='/success' element={<Success/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/regseller' element={<Registration/>}></Route>
-        <Route path='/success-registration' element={<SuccessRegistration/>}></Route>
-        <Route path='/dashboardseller' element={<Dashboard/>}></Route>
-        <Route path='/availablestockseller' element={<AvailableStock/>}></Route>
-        <Route path='/uploadstock' element={<Uploadstock/>}></Route>
-        <Route path='/success-stock' element={<SuccessStock/>}></Route>
-        <Route path='/current-orders' element={<CurrentOrders/>}></Route>
-        <Route path='/password-recovery' element={<PasswordRecovery/>}></Route>
-        <Route path='/password-change' element={<ChangePassword/>}></Route>
-        <Route path='/step-component' element={<CheckoutSteps/>}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/details/:prodId" element={<Details />} />
+        <Route path="/details" element={<Details />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/kids" element={<Kids />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/userProfile" element={<Profile />} />
+        <Route path="/userLogin" element={<UserLogin />} />
+        <Route path="/verification" element={<Verification />} />
+        <Route path="/personal-details" element={<Personal />} />
+        <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/razorpay" element={<Razorpay />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/regseller" element={<Registration />} />
+        <Route path="/success-registration" element={<SuccessRegistration />} />
+        <Route path="/dashboardseller" element={<Dashboard />} />
+        <Route path="/availablestockseller" element={<AvailableStock />} />
+        <Route path="/uploadstock" element={<Uploadstock />} />
+        <Route path="/success-stock" element={<SuccessStock />} />
+        <Route path="/current-orders" element={<CurrentOrders />} />
+        <Route path="/password-recovery" element={<PasswordRecovery />} />
+        <Route path="/password-change" element={<ChangePassword />} />
+        <Route path="/step-component" element={<CheckoutSteps />} />
       </Routes>
-      </BrowserRouter>
-  </>
+    </BrowserRouter>
   )
 }
 

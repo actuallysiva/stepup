@@ -1,37 +1,30 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function SuccessRegistration() {
-    return (
-        <div className="successRegistrationContainer">
+  const navigate = useNavigate();
 
-            <div className="greetings">
-
-                <div className="imageContainer">
-                    <img
-                        src="/success.png"
-                        alt="Success Registration"
-                    />
-                </div>
-
-                <h2>Registration Successful 🎉</h2>
-
-                <p className="successMessage">
-                    Your seller account has been created successfully.
-                    You can now login and start managing your products.
-                </p>
-
-                <div className="successRegistrationButtons">
-
-                    <button className="loginButton">
-                        Login to Profile
-                    </button>
-
-                    <button className="homeButton">
-                        Go to Home
-                    </button>
-
-                </div>
-
-            </div>
-
+  return (
+    <div className="centered-page">
+      <div className="successRegistrationContainer" style={{ maxWidth: '700px', width: '100%' }}>
+        <div className="greetings">
+        <div className="imageContainer">
+          <img src="./src/assets/success.png" alt="Success Registration" />
         </div>
-    );
+        <h2>Registration Successful 🎉</h2>
+        <p className="successMessage">
+          Your seller account has been created successfully.
+          You can now login and start managing your products.
+        </p>
+        <div className="successRegistrationButtons">
+          <button type="button" className="loginButton" onClick={() => navigate('/login')}>
+            Login to Profile
+          </button>
+          <button type="button" className="homeButton" onClick={() => navigate('/')}>
+            Go to Home
+          </button>
+        </div>
+        </div>
+      </div>
+    </div>
+  );
 }

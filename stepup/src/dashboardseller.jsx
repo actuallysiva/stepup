@@ -1,101 +1,64 @@
-import SellerLayout from "./layouts/SellerLayout";
-import { useNavigate } from "react-router-dom";
-export default function Dashboard(){
-    const navigate = useNavigate();
-    return(
+import { useEffect, useState } from 'react';
+import SellerLayout from './layouts/SellerLayout';
+import { useNavigate } from 'react-router-dom';
+import { getSellerDashboard } from './api';
+import { useApp } from './context/AppContext';
+import { formatPrice } from './utils/helpers';
 
-        <SellerLayout>
+export default function Dashboard() {
+  const navigate = useNavigate();
+  const { seller, logoutSeller } = useApp();
+  const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-            <div>
+  useEffect(() => {
+    if (!seller?.sellerid) {
+      navigate('/login');
+      return;
+    }
+    getSellerDashboard(seller.sellerid)
+      .then(setStats)
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, [seller, navigate]);
 
-                
-        <div className="dashboardPage">
+  const handleLogout = () => {
+    logoutSeller();
+    navigate('/login');
+  };
 
-            {/* SIDEBAR */}
+  if (loading) return <p className="statusMsg">Loading dashboard...</p>;
 
-             <div className="sidebar">
+  const info = stats?.seller || seller;
 
-                <h2 className="logo">
-                    StepUp
-                </h2>
+  return (
+    <SellerLayout>
+      <div className="dashboardPage">
+        <div className="dashboardContainer">
+          <div className="dashboardDetails">
+            <h2>Dashboard</h2>
+            <h4>Name : {info?.name}</h4>
+            <h4>Shop Name : {info?.shopname}</h4>
+          </div>
 
-                <button>Dashboard</button>
+          {error && <p className="statusMsg error">{error}</p>}
 
-                <button>Orders</button>
+          <div className="statsGrid">
+            <div className="statCard"><h5>Total Orders</h5><p>{stats?.total_orders ?? 0}</p></div>
+            <div className="statCard"><h5>Available Stock</h5><p>{stats?.available_stock ?? 0}</p></div>
+            <div className="statCard"><h5>Total Revenue</h5><p>{formatPrice(stats?.total_revenue || 0)}</p></div>
+          </div>
 
-                <button>Products</button>
-
-                <button onClick={()=>navigate('/uploadStock/')}>Upload Stock</button>
-
-                <button>Analytics</button>
-
-                <button>Settings</button>
-
-                <button onClick={()=>navigate('/login/')}>Logout</button>
-
-            </div> */
-
-            {/* MAIN CONTENT */}
-
-            <div className="dashboardContainer">
-
-                {/* PROFILE */}
-
-                <div className="dashboardDetails">
-
-                    <h2>Dashboard</h2>
-
-                    <h4>Name : John</h4>
-
-                    <h4>Shop Name : Urban Shoes</h4>
-
-                </div>
-
-                {/* STATS */}
-
-                <div className="statsGrid">
-
-                    <div className="statCard">
-                        <h5>Total Orders</h5>
-                        <p>120</p>
-                    </div>
-
-                    <div className="statCard">
-                        <h5>Available Stock</h5>
-                        <p>320</p>
-                    </div>
-
-                    <div className="statCard">
-                        <h5>Daily Income</h5>
-                        <p>₹ 4,500</p>
-                    </div>
-
-                    <div className="statCard">
-                        <h5>Monthly Income</h5>
-                        <p>₹ 85,000</p>
-                    </div>
-
-                </div>
-
-                {/* ACTIONS */}
-
-                <div className="actionSection">
-
-                    <button>Current Orders</button>
-
-                    <button onClick={()=>navigate('/availablestockseller/')}>Check Inventory</button>
-
-                    <button>Upload Products</button>
-
-                </div>
-
-            </div>
-
+          <div className="actionSection">
+            <button type="button" onClick={() => navigate('/current-orders')}>Current Orders</button>
+            <button type="button" onClick={() => navigate('/availablestockseller')}>Check Inventory</button>
+            <button type="button" onClick={() => navigate('/uploadstock')}>Upload Products</button>
+            <button type="button" onClick={() => navigate('/password-change')}>Change Password</button>
+            <button type="button" onClick={handleLogout}>Logout</button>
+          </div>
         </div>
-
-            </div>
-
-        </SellerLayout>
-
-    );
+      </div>
+    </SellerLayout>
+  );
 }
