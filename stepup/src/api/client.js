@@ -40,8 +40,6 @@ async function request(path, options = {}) {
   }
 
   return text ? data : null;
-
-  return data;
 }
 
 export const api = {
