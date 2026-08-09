@@ -49,7 +49,12 @@ function Registration() {
   return (
     <div className="centered-page">
       <div className="form-container">
-        <h1 className="form-title">Seller Registration</h1>
+        <div className="form-header">
+          <button type="button" className="backBtn" onClick={() => navigate('/login')}>
+            ← Back
+          </button>
+          <h1 className="form-title">Seller Registration</h1>
+        </div>
 
       <div className="input-group">
         <input className="input2" type="text" placeholder="Name" value={form.name}

@@ -40,10 +40,15 @@ export default function Confirmation() {
   const subtotal = checkout.buyNow
     ? Number(checkout.buyNowItem?.price || 0) * (checkout.buyNowItem?.quantity || 1)
     : Number(cart?.subtotal || 0);
-  const delivery = checkout.paymentMethod === 'COD' ? Number(cart?.delivery_fee || 99) : 0;
-  const total = checkout.buyNow ? subtotal + delivery : Number(cart?.total || 0);
+  const delivery = checkout.paymentMethod === 'COD' ? 99 : 0;
+  const total = subtotal + delivery;
 
   const handleConfirm = async () => {
+    if (!items.length) {
+      setError('No items in order');
+      return;
+    }
+    
     setSubmitting(true);
     setError('');
     try {
@@ -64,7 +69,7 @@ export default function Confirmation() {
         navigate('/success');
       }
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Failed to place order. Please try again.');
     } finally {
       setSubmitting(false);
     }

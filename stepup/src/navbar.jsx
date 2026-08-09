@@ -7,6 +7,7 @@ export default function Navbar() {
   const location = useLocation();
   const { searchQuery, setSearchQuery, seller, theme, toggleTheme, user } = useApp();
   const [localSearch, setLocalSearch] = useState(searchQuery);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setLocalSearch(searchQuery);
@@ -16,6 +17,7 @@ export default function Navbar() {
     e.preventDefault();
     setSearchQuery(localSearch.trim());
     navigate('/');
+    setMobileMenuOpen(false);
   };
 
   const isSellerPage = [
@@ -31,19 +33,34 @@ export default function Navbar() {
     '/password-change'
   ].some(path => location.pathname === path || location.pathname.startsWith(path + '/'));
 
+  const handleNavClick = (path) => {
+    setSearchQuery('');
+    navigate(path);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <div className="navbar">
-      <div className="logoCard">
-        <h2 onClick={() => { setSearchQuery(''); navigate('/'); }}>StepUP</h2>
+      <div className="navbarLeft">
+        <div className="logoCard">
+          <h2 onClick={() => { setSearchQuery(''); navigate('/'); }}>StepUP</h2>
+        </div>
+        <button 
+          className="mobileMenuBtn" 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          style={{ display: 'none' }}
+        >
+          {mobileMenuOpen ? '✕' : '☰'}
+        </button>
       </div>
 
       {!isSellerPage ? (
         <>
-          <div className="navLinks">
-            <button type="button" className="navLinkBtn" onClick={() => { setSearchQuery(''); navigate('/'); }}>Home</button>
-            <button type="button" className="navLinkBtn" onClick={() => { setSearchQuery(''); navigate('/men'); }}>Men</button>
-            <button type="button" className="navLinkBtn" onClick={() => { setSearchQuery(''); navigate('/women'); }}>Women</button>
-            <button type="button" className="navLinkBtn" onClick={() => { setSearchQuery(''); navigate('/kids'); }}>Kids</button>
+          <div className={`navLinks ${mobileMenuOpen ? 'mobileOpen' : ''}`}>
+            <button type="button" className="navLinkBtn" onClick={() => handleNavClick('/')}>Home</button>
+            <button type="button" className="navLinkBtn" onClick={() => handleNavClick('/men')}>Men</button>
+            <button type="button" className="navLinkBtn" onClick={() => handleNavClick('/women')}>Women</button>
+            <button type="button" className="navLinkBtn" onClick={() => handleNavClick('/kids')}>Kids</button>
           </div>
 
           <form className="searchBar" onSubmit={handleSearch} style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>

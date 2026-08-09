@@ -94,7 +94,7 @@ export default function Personal() {
       } else if (flow === 'wishlist') {
         navigate('/wishlist');
       } else {
-        setCheckout({ paymentMethod: form.paymentMethod });
+        setCheckout({ ...checkout, paymentMethod: form.paymentMethod });
         navigate('/confirmation');
       }
     } catch (err) {
