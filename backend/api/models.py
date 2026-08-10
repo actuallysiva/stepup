@@ -138,7 +138,7 @@ class Image(models.Model):
         on_delete=models.CASCADE,
         related_name="images",
     )
-    img_url = models.CharField(db_column="Img_url", max_length=100, blank=True, null=True)
+    img_url = models.CharField(db_column="Img_url", max_length=2048, blank=True, null=True)
     alt_text = models.CharField(db_column="alt_text", max_length=50, blank=True, null=True)
 
     class Meta:
