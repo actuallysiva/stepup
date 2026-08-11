@@ -1,8 +1,26 @@
+const API_BASE = "https://stepup-production-a990.up.railway.app";
+
 export function resolveImageUrl(url) {
-  if (!url) return 'https://via.placeholder.com/120';
-  if (url.startsWith('http') || url.startsWith('blob:') || url.startsWith('data:')) return url;
-  return url.startsWith('/') ? url : `/${url}`;
+  if (!url) return "https://via.placeholder.com/120";
+
+  if (
+    url.startsWith("http") ||
+    url.startsWith("blob:") ||
+    url.startsWith("data:")
+  ) {
+    return url;
+  }
+
+  return `${API_BASE}${url.startsWith("/") ? "" : "/"}${url}`;
 }
+
+
+
+// export function resolveImageUrl(url) {
+//   if (!url) return 'https://via.placeholder.com/120';
+//   if (url.startsWith('http') || url.startsWith('blob:') || url.startsWith('data:')) return url;
+//   return url.startsWith('/') ? url : `/${url}`;
+// }
 
 export function formatPrice(value) {
   const num = Number(value) || 0;

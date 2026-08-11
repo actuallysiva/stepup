@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import  successIcon  from './assets/success.png'
 
 export default function SuccessRegistration() {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ export default function SuccessRegistration() {
       <div className="successRegistrationContainer" style={{ maxWidth: '700px', width: '100%' }}>
         <div className="greetings">
         <div className="imageContainer">
-          <img src="./src/assets/success.png" alt="Success Registration" />
+          <img src={ successIcon } alt="Registration Success" />
         </div>
         <h2>Registration Successful 🎉</h2>
         <p className="successMessage">

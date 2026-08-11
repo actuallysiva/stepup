@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import SellerLayout from './layouts/SellerLayout';
+import  successIcon  from './assets/success.png'
+
 
 export default function SuccessStock() {
   const navigate = useNavigate();
@@ -9,7 +11,7 @@ export default function SuccessStock() {
       <div className="successContainer">
         <div className="greetings">
           <div className="imageContainer">
-            <img src="./src/assets/success.png" alt="Success stock" />
+            <img src={ successIcon } alt="Upload Successful" />
           </div>
           <h3>Your stocks have been successfully updated</h3>
           <button type="button" className="linkBtn" onClick={() => navigate('/availablestockseller')}>

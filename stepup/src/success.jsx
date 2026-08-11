@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import CheckoutSteps from './step-component.jsx';
 import { useApp } from './context/AppContext';
 import { formatPrice } from './utils/helpers';
+import  successIcon  from './assets/success.png'
+
 
 export default function Success() {
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ export default function Success() {
         <div className="successContainer">
           <div className="greetings">
             <div className="imageContainer">
-              <img src="./src/assets/success.png" alt="Success" />
+              <img src={ successIcon } alt="Success" />
             </div>
             <h3>YAY!! Your order is confirmed and scheduled for delivery</h3>
             <h5>Order ID: {lastOrder?.order_id || '—'}</h5>
