@@ -48,7 +48,6 @@ export default function Navbar() {
         <button 
           className="mobileMenuBtn" 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          style={{ display: 'none' }}
         >
           {mobileMenuOpen ? '✕' : '☰'}
         </button>
@@ -105,3 +104,4 @@ export default function Navbar() {
     </div>
   );
 }
+ 

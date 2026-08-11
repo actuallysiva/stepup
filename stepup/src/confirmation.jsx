@@ -7,7 +7,7 @@ import { formatPrice, resolveImageUrl } from './utils/helpers';
 
 export default function Confirmation() {
   const navigate = useNavigate();
-  const { user, checkout, setLastOrder } = useApp();
+  const { user, checkout, setLastOrder, setCheckout } = useApp();
   const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -31,7 +31,6 @@ export default function Confirmation() {
   const items = checkout.buyNow && checkout.buyNowItem
     ? [checkout.buyNowItem]
     : (cart?.items || []);
-
   const address = user?.addresses?.[0];
   const addressLine = address
     ? `${address.home_no || ''} ${address.street || ''}, ${address.city || ''} - ${address.pincode || ''}`
@@ -62,12 +61,21 @@ export default function Confirmation() {
         payload.quantity = checkout.quantity || 1;
       }
       const order = await placeOrder(payload);
-      setLastOrder(order);
-      if (checkout.paymentMethod === 'Razorpay') {
-        navigate('/razorpay');
-      } else {
-        navigate('/success');
-      }
+setLastOrder(order);
+
+// Clear Buy Now state after successful order
+setCheckout({
+  buyNow: false,
+  buyNowItem: null,
+  variantId: null,
+  quantity: 1,
+});
+
+if (checkout.paymentMethod === 'Razorpay') {
+  navigate('/razorpay');
+} else {
+  navigate('/success');
+}
     } catch (err) {
       setError(err.message || 'Failed to place order. Please try again.');
     } finally {

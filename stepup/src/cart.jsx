@@ -6,7 +6,7 @@ import { formatPrice, resolveImageUrl } from './utils/helpers';
 
 export default function Cart() {
   const navigate = useNavigate();
-  const { user } = useApp();
+  const { user, setCheckout } = useApp();  
   const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -62,6 +62,7 @@ export default function Cart() {
   if (loading) return <p className="statusMsg">Loading cart...</p>;
 
   const items = cart?.items || [];
+  
 
   return (
     <div className="cartContainer">
@@ -116,13 +117,24 @@ export default function Cart() {
             <span>{formatPrice(cart?.total || 0)}</span>
           </div>
           <button
-            type="button"
-            className="checkoutBtn"
-            disabled={!items.length}
-            onClick={() => navigate('/verification', { state: { flow: 'checkout' } })}
-          >
-            Checkout
-          </button>
+  type="button"
+  className="checkoutBtn"
+  disabled={!items.length}
+  onClick={() => {
+    setCheckout({
+        buyNow: false,
+        buyNowItem: null,
+        variantId: null,
+        quantity: 1,
+    });
+
+    navigate('/verification', {
+      state: { flow: 'checkout' }
+    });
+  }}
+>
+  Checkout
+</button>
         </div>
       </div>
     </div>

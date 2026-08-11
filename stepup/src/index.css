@@ -344,6 +344,7 @@ img {
   font-size: 20px;
   cursor: pointer;
   transition: var(--transition-normal);
+  flex-shrink: 0;
 }
 
 .mobileMenuBtn:hover {
@@ -392,7 +393,7 @@ img {
 }
 
 .searchBar {
-  width: 320px;
+  width: 400px;
   position: relative;
 }
 
@@ -786,6 +787,19 @@ img {
   background: var(--accent-gradient);
   color: white;
   border-color: transparent;
+}
+
+/* ========================================
+   SELLER LAYOUT
+   ======================================== */
+.sellerPage {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.sellerContent {
+  width: 100%;
+  padding: 20px;
 }
 
 /* ========================================
@@ -2957,14 +2971,6 @@ img {
 }
 
 @media (max-width: 1100px) {
-  .navLinks {
-    display: none;
-  }
-
-  .searchBar {
-    width: 220px;
-  }
-
   .stockSummary {
     grid-template-columns: 1fr;
   }
@@ -2982,20 +2988,6 @@ img {
   .detailsPage {
     flex-direction: column;
   }
-
-  .dashboardPage {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    flex-direction: row;
-    overflow-x: auto;
-  }
-
-  .statsGrid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Mobile */
@@ -3010,14 +3002,24 @@ img {
 
   .checkoutSteps {
     width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
+  }
+
+  .checkoutContent {
+    width: 100%;
+  }
+
+  .form-container {
+    max-width: 100%;
+    margin: 20px;
     padding: 25px;
   }
 
-  .stepItem span {
-    display: none;
+  .containerInput {
+    grid-template-columns: 1fr;
+  }
+
+  .containerInput textarea {
+    grid-column: span 1;
   }
 
   .detailsProduct {
@@ -3072,17 +3074,6 @@ img {
 }
 
 @media (max-width: 800px) {
-  .navbar {
-    flex-wrap: wrap;
-    height: auto;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .searchBar {
-    width: 100%;
-  }
-
   .orderItem {
     flex-direction: column;
   }
@@ -3324,20 +3315,42 @@ img {
    RESPONSIVE DESIGN - MOBILE
    ======================================== */
 
+/* Navbar Tablet */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  
+  .searchBar {
+    width: 250px;
+  }
+  
+  .sidebuttons {
+    gap: 12px;
+  }
+  
+  .sidebuttons button {
+    height: 40px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+}
+
 /* Navbar Mobile */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0 15px;
+    padding: 0 10px;
     height: 60px;
     flex-wrap: nowrap;
+    gap: 10px;
   }
   
   .navbarLeft {
-    flex: 1;
+    flex: 0 0 auto;
   }
   
   .logoCard h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   .mobileMenuBtn {
@@ -3379,27 +3392,25 @@ img {
   }
   
   .searchBar {
-    width: 140px;
-    margin: 0 10px;
-  }
-  
-  .searchBar input {
-    font-size: 14px;
+    display: none;
   }
   
   .sidebuttons {
-    gap: 8px;
+    gap: 4px;
   }
   
   .sidebuttons button {
-    height: 36px;
-    padding: 0 12px;
-    font-size: 13px;
+    height: 32px;
+    padding: 0 6px;
+    font-size: 11px;
+    min-width: auto;
+    border-radius: 6px;
   }
   
-  .sidebuttons button:nth-child(2),
-  .sidebuttons button:nth-child(5) {
-    display: none;
+  .sidebuttons button:nth-child(1) {
+    display: block;
+    font-size: 16px;
+    padding: 0 8px;
   }
 }
 
@@ -3449,32 +3460,53 @@ img {
   }
   
   .dashboardContainer {
-    padding: 20px;
+    padding: 15px;
+  }
+  
+  .dashboardDetails {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .dashboardDetails h2 {
+    font-size: 20px;
+  }
+  
+  .dashboardDetails h4 {
+    font-size: 14px;
   }
   
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 10px;
+    margin-bottom: 15px;
   }
   
   .statCard {
-    padding: 20px;
+    padding: 15px;
   }
   
   .statCard h5 {
-    font-size: 14px;
+    font-size: 13px;
   }
   
   .statCard p {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   .actionSection {
     flex-direction: column;
+    gap: 10px;
   }
   
   .actionSection button {
     width: 100%;
+    padding: 12px;
+  }
+  
+  /* Seller Layout */
+  .sellerContent {
+    padding: 15px;
   }
   
   /* Seller Pages */
@@ -3485,38 +3517,37 @@ img {
   .availableHeader {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 10px;
   }
   
   .availableHeader h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
   
-  .availableHeader button {
+  .availableHeader button,
+  .availableHeader div {
     width: 100%;
+    flex-direction: column;
   }
   
   .stockSummary {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 10px;
   }
   
   .summaryCard {
-    padding: 20px;
+    padding: 15px;
   }
   
   .summaryCard p {
-    font-size: 24px;
+    font-size: 20px;
   }
   
   .availableSearch {
     flex-direction: column;
   }
   
-  .availableSearch input {
-    width: 100%;
-  }
-  
+  .availableSearch input,
   .availableSearch button {
     width: 100%;
   }
@@ -3531,48 +3562,19 @@ img {
   }
   
   .orderItem {
-    flex-direction: column;
-    padding: 20px;
+    padding: 15px;
   }
   
-  .orderImage img {
+  .orderDetails {
     width: 100%;
-    height: auto;
   }
   
   .actionButtons {
     flex-direction: column;
-    width: 100%;
+    gap: 8px;
   }
   
   .actionButtons button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .statsGrid {
-    grid-template-columns: 1fr;
-  }
-  
-  .dashboardDetails {
-    padding: 20px;
-  }
-  
-  .stockSummary {
-    grid-template-columns: 1fr;
-  }
-  
-  .availableHeader {
-    flex-direction: column;
-  }
-  
-  .availableHeader > div {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .availableHeader button {
     width: 100%;
   }
   
@@ -3582,16 +3584,16 @@ img {
   }
   
   .uploadCard {
-    padding: 20px;
+    padding: 15px;
   }
   
   .uploadCard h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   .containerInput {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 10px;
   }
   
   .containerInput textarea {
@@ -3600,6 +3602,7 @@ img {
   
   .uploadActions {
     flex-direction: column;
+    gap: 10px;
   }
   
   .uploadActions button {
@@ -3607,12 +3610,22 @@ img {
   }
   
   .variantRow {
-    padding: 15px;
+    padding: 10px;
   }
   
   .addVariantBtn,
   .removeVariantBtn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stockSummary {
+    grid-template-columns: 1fr;
   }
 }
 
