@@ -1,6 +1,7 @@
 asgiref==3.11.1
 certifi==2026.6.17
 charset-normalizer==3.4.9
+cloudinary==1.45.0
 Django==5.2.15
 django-cors-headers==4.7.0
 djangorestframework==3.17.1
@@ -11,6 +12,7 @@ packaging==26.2
 python-dotenv==1.2.2
 razorpay==2.0.1
 requests==2.34.2
+six==1.17.0
 sqlparse==0.5.5
 urllib3==2.7.0
 whitenoise==6.12.0

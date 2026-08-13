@@ -11,6 +11,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+import cloudinary.uploader
+
 from .models import (
     Address,
     Cart,
@@ -919,7 +921,23 @@ def seller_reset_password(request):
 def upload_image(request):
     image_file = request.FILES.get("image")
     if not image_file:
-        return Response({"error": "No image file provided"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"error": "No image file provided"}, 
+                        status=status.HTTP_400_BAD_REQUEST)
+    try:
+        result = cloudinary.uploader.upload(
+            image_file,
+            folder="stepup/products",
+        )
+
+        return Response({
+            "url": result["secure_url"]
+        })
+
+    except Exception as e:
+        return Response(
+            {"error": str(e)},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        )
 
     import os
     import uuid
