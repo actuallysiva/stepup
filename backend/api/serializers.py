@@ -200,7 +200,7 @@ class UploadStockSerializer(serializers.Serializer):
     color = serializers.CharField(max_length=15)
     price = serializers.DecimalField(max_digits=10, decimal_places=2)
     quantity = serializers.IntegerField(min_value=1)
-    img_url = serializers.CharField(max_length=100, required=False, allow_blank=True)
+    img_url = serializers.URLField(max_length=2048, required=False, allow_blank=True)
     sku = serializers.CharField(max_length=15, required=False, allow_blank=True)
 
 
