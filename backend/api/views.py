@@ -938,19 +938,21 @@ def upload_image(request):
             {"error": str(e)},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
+# For Cloudinary - these support local media Path
 
-    import os
-    import uuid
+    # import os
+    # import uuid
 
-    ext = os.path.splitext(image_file.name)[1].lower() or ".jpg" or ".webp" or ".png" or ".avif"
-    filename = f"{uuid.uuid4().hex[:12]}{ext}"
-    folder = settings.MEDIA_ROOT / "products"
-    folder.mkdir(parents=True, exist_ok=True)
-    filepath = folder / filename
+    # ext = os.path.splitext(image_file.name)[1].lower() or ".jpg" or ".webp" or ".png" or ".avif"
+    # filename = f"{uuid.uuid4().hex[:12]}{ext}"
+    # folder = settings.MEDIA_ROOT / "products"
+    # folder.mkdir(parents=True, exist_ok=True)
+    # filepath = folder / filename
 
-    with open(filepath, "wb+") as dest:
-        for chunk in image_file.chunks():
-            dest.write(chunk)
+    # with open(filepath, "wb+") as dest:
+    #     for chunk in image_file.chunks():
+    #         dest.write(chunk)
 
-    url = f"{settings.MEDIA_URL}products/{filename}"
-    return Response({"url": url})
+    # url = f"{settings.MEDIA_URL}products/{filename}"
+    # return Response({"url": url})
+
