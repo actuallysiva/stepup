@@ -4,6 +4,9 @@ import { getWishlist, moveWishlistToCart, removeFromWishlist } from './api';
 import { useApp } from './context/AppContext';
 import { formatPrice, resolveImageUrl } from './utils/helpers';
 
+import "./styles/wishlist.css";
+import { Trash2, ArrowLeft } from "lucide-react";
+
 export default function Wishlist() {
   const navigate = useNavigate();
   const { user } = useApp();
@@ -52,14 +55,23 @@ export default function Wishlist() {
       setError(err.message);
     }
   };
-
   if (loading) return <p className="statusMsg">Loading wishlist...</p>;
+console.log(items[0])
 
   return (
     <div className="wishlistContainer">
       <div className="wishlistHeader">
+        <div>
         <h1>My Wishlist</h1>
-        <h4>{count} Saved Items</h4>
+        <p>{count} Saved Items</p>
+      </div>
+      <button
+        className="continueShoppingBtn"
+        onClick={() => navigate("/")}
+    >
+      <ArrowLeft size={18}/>
+        Continue Shopping
+    </button>
       </div>
 
       {error && <p className="statusMsg error">{error}</p>}
@@ -73,15 +85,23 @@ export default function Wishlist() {
               <img src={resolveImageUrl(item.image)} alt={item.prod_name} />
               <div className="wishlistDetails">
                 <h3>{item.prod_name}</h3>
-                <p>{item.dscrptn}</p>
-                <h4>{formatPrice(item.price)}</h4>
+                <p className="wishlistMeta">
+    {item.color} • UK {item.size}
+    
+</p>
+                <h2>{formatPrice(item.price)}</h2>
+
+<p className="wishlistStock">
+In Stock
+</p>
               </div>
               <div className="wishlistActions">
                 <button type="button" className="moveBtn" onClick={() => handleMoveToCart(item.wishlist_id)}>
-                  Move To Cart
+                  Add To Cart
                 </button>
                 <button type="button" className="removeBtn" onClick={() => handleRemove(item.wishlist_id)}>
-                  Remove
+                      <Trash2 size={18} />
+
                 </button>
               </div>
             </div>

@@ -4,6 +4,10 @@ import { getOrders, getUser, getWishlist, updateUser } from './api';
 import { useApp } from './context/AppContext';
 import { formatPrice } from './utils/helpers';
 
+
+import "./styles/profiles.css";
+
+
 export default function Profile() {
   const navigate = useNavigate();
   const { user, setUser, logoutUser } = useApp();
@@ -86,17 +90,23 @@ export default function Profile() {
 
   return (
     <div className="profileContainer">
+      <h1 className="profilePageTitle">
+        My Account
+      </h1>
       <div className="profileCard">
         <div className="profileHeader">
-          <div className="profileAvatar" style={{ backgroundColor: `hsl(${(firstLetter.charCodeAt(0) * 137) % 360}, 70%, 50%)` }}>
+          <div className="profileAvatar" 
+          style={{ backgroundColor: `hsl(${(firstLetter.charCodeAt(0) * 137) % 360}, 70%, 50%)` }}>
             {firstLetter}
           </div>
+          <div className="profileIdentity">
           <h2>{user?.name}</h2>
           <p>StepUp Member</p>
+          </div>
         </div>
 
         {editing ? (
-          <div className="profileDetails">
+          <div className="profileInfo">
             <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Name" />
             <input value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Email" />
             <input value={form.home_no} onChange={(e) => setForm({ ...form, home_no: e.target.value })} placeholder="House No" />
@@ -108,11 +118,12 @@ export default function Profile() {
             <button type="button" className="logoutBtn" onClick={() => setEditing(false)}>Cancel</button>
           </div>
         ) : (
-          <div className="profileDetails">
-            <div className="detailRow"><span>Name</span><span>{user?.name}</span></div>
-            <div className="detailRow"><span>Email</span><span>{user?.email || '—'}</span></div>
-            <div className="detailRow"><span>Mobile</span><span>{user?.phone}</span></div>
-            <div className="detailRow">
+          <div className="profileInfo">
+            <h3>Personal Information</h3>
+            <div className="profileRow"><span>Name</span><span>{user?.name}</span></div>
+            <div className="profileRow"><span>Email</span><span>{user?.email || '—'}</span></div>
+            <div className="profileRow"><span>Mobile</span><span>{user?.phone}</span></div>
+            <div className="profileRow">
               <span>Address</span>
               <span>{addr ? `${addr.city}, ${addr.state}` : '—'}</span>
             </div>
@@ -128,9 +139,10 @@ export default function Profile() {
           <div className="profileOrders">
             <h3>Recent Orders</h3>
             {orders.slice(0, 5).map((order) => (
-              <div key={order.order_id} className="detailRow">
-                <span>{order.order_id}</span>
-                <span>{formatPrice(order.totalamount)} — {order.order_status}</span>
+              <div key={order.order_id} className="orderRow">
+                <span className="orderId">{order.order_id}</span>
+                <span className="orderAmount">{formatPrice(order.totalamount)}</span>
+                <span>{order.order_status}</span>
               </div>
             ))}
           </div>

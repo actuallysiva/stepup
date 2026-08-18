@@ -79,6 +79,8 @@ def send_otp(request):
     otp = random.randint(100000, 999999)
     otp_store[str(phone)] = otp
 
+    print(f"OTP for {phone}: {otp}")
+
     return Response({"message": "OTP sent successfully", "otp": otp})
 
 
@@ -927,6 +929,9 @@ def upload_image(request):
         result = cloudinary.uploader.upload(
             image_file,
             folder="stepup/products",
+            resource_type="image",
+            overwrite=False,
+            unique_filename=True,
         )
 
         return Response({

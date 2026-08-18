@@ -2,6 +2,19 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useApp } from './context/AppContext';
 
+import "./styles/navbar.css";
+
+import {
+  Search,
+  ShoppingCart,
+  Heart,
+  User,
+  Moon,
+  Sun,
+  Menu,
+  X
+} from "lucide-react";
+
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,11 +34,11 @@ export default function Navbar() {
   };
 
   const isSellerPage = [
-    '/login',
+    '/signin',
     '/regseller',
     '/success-registration',
     '/dashboardseller',
-    '/availablestockseller',
+    '/inventory',
     '/uploadstock',
     '/success-stock',
     '/current-orders',
@@ -49,38 +62,37 @@ export default function Navbar() {
           className="mobileMenuBtn" 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? '✕' : '☰'}
+          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {!isSellerPage ? (
         <>
           <div className={`navLinks ${mobileMenuOpen ? 'mobileOpen' : ''}`}>
-            <button type="button" className="navLinkBtn" onClick={() => handleNavClick('/')}>Home</button>
-            <button type="button" className="navLinkBtn" onClick={() => handleNavClick('/men')}>Men</button>
-            <button type="button" className="navLinkBtn" onClick={() => handleNavClick('/women')}>Women</button>
-            <button type="button" className="navLinkBtn" onClick={() => handleNavClick('/kids')}>Kids</button>
+            <button type="button" 
+            className={`navLinkBtn ${location.pathname === "/" ? "activeNav" : ""}`}
+             onClick={() => handleNavClick('/')}>
+              Home
+             </button>
+            <button type="button" 
+            className={`navLinkBtn ${location.pathname === "/men" ? "activeNav" : ""}`} 
+             onClick={() => handleNavClick('/men')}>
+              Men
+              </button>
+            <button type="button" 
+            className={`navLinkBtn ${location.pathname === "/women" ? "activeNav" : ""}`}
+             onClick={() => handleNavClick('/women')}>
+              Women
+              </button>
+            <button type="button" 
+            className={`navLinkBtn ${location.pathname === "/kids" ? "activeNav" : ""}`}
+             onClick={() => handleNavClick('/kids')}>
+              Kids
+              </button>
           </div>
 
           <form className="searchBar" onSubmit={handleSearch} style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-            <svg
-              className="searchIcon"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              style={{
-                position: 'absolute',
-                left: '14px',
-                width: '18px',
-                height: '18px',
-                color: '#9ca3af',
-                pointerEvents: 'none'
-              }}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.604 10.604Z" />
-            </svg>
+            <Search className="searchIcon" size={18} />
             <input
               type="text"
               placeholder="Search shoes..."
@@ -92,12 +104,12 @@ export default function Navbar() {
 
           <div className="sidebuttons">
             <button type="button" onClick={toggleTheme} title="Toggle Theme">
-              {theme === 'light' ? '🌙' : '☀️'}
+              {theme === "light" ? <Moon size={18}/> : <Sun size={18}/>}
             </button>
-            <button type="button" onClick={() => navigate('/login')}>Seller?</button>
-            <button type="button" onClick={() => user?.userid ? navigate('/wishlist') : navigate('/userLogin')}>❤️</button>
-            <button type="button" onClick={() => user?.userid ? navigate('/cart') : navigate('/userLogin')}>🛒</button>
-            <button type="button" onClick={() => user?.userid ? navigate('/userProfile') : navigate('/userLogin')}>Profile</button>
+            <button type="button" className="sellerBtn" onClick={() => navigate('/signin')}>Seller Portal</button>
+            <button type="button" onClick={() => user?.userid ? navigate('/wishlist') : navigate('/userLogin')}><Heart size={18}/></button>
+            <button type="button" onClick={() => user?.userid ? navigate('/cart') : navigate('/userLogin')}><ShoppingCart size={18}/></button>
+            <button type="button" onClick={() => user?.userid ? navigate('/userProfile') : navigate('/userLogin')}><User size={18}/></button>
           </div>
         </>
       ) : null}

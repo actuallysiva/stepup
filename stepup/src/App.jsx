@@ -18,18 +18,16 @@ import Confirmation from './confirmation.jsx'
 import Razorpay from './razorpay.jsx'
 import Success from './success.jsx'
 
-import Login from './login.jsx'
+import SignIn from './signin.jsx'
 import Registration from './regseller.jsx'
 import SuccessRegistration from './success-registration.jsx'
 import Dashboard from './dashboardseller.jsx'
-import AvailableStock from './availablestockseller.jsx'
+import Inventory from './inventory.jsx'
 import Uploadstock from './uploadStock.jsx'
 import SuccessStock from './success-stock.jsx'
-
 import CurrentOrders from './current-orders.jsx'
 import PasswordRecovery from './password-recovery.jsx'
 import ChangePassword from './password-change.jsx'
-import CheckoutSteps from './step-component.jsx'
 
 function App() {
   return (
@@ -51,17 +49,16 @@ function App() {
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/razorpay" element={<Razorpay />} />
         <Route path="/success" element={<Success />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/regseller" element={<Registration />} />
         <Route path="/success-registration" element={<SuccessRegistration />} />
         <Route path="/dashboardseller" element={<Dashboard />} />
-        <Route path="/availablestockseller" element={<AvailableStock />} />
+        <Route path="/inventory" element={<Inventory />} />
         <Route path="/uploadstock" element={<Uploadstock />} />
         <Route path="/success-stock" element={<SuccessStock />} />
         <Route path="/current-orders" element={<CurrentOrders />} />
         <Route path="/password-recovery" element={<PasswordRecovery />} />
         <Route path="/password-change" element={<ChangePassword />} />
-        <Route path="/step-component" element={<CheckoutSteps />} />
       </Routes>
     </BrowserRouter>
   )

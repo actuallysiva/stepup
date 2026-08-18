@@ -4,7 +4,9 @@ import { loginSeller } from './api';
 import { useApp } from './context/AppContext';
 import { Link } from "react-router-dom";
 
-function Login() {
+import "./styles/signin.css";
+
+export default function SignIn() {
   const navigate = useNavigate();
   const { setSeller } = useApp();
   const [phone, setPhone] = useState('');
@@ -31,15 +33,29 @@ function Login() {
   };
 
   return (
-    <div className="centered-page">
-      <div className="form-container">
-        <h1 className="form-title">Login</h1>
+    <div className="sellerAuthPage">
+      <div className="sellerLoginCard">
+        <div className="sellerBrand">
+
+    <h3>STEPUP</h3>
+
+    <span>Seller Hub</span>
+
+</div>
+
+<h1>Seller SignIn</h1>
+
+<p className="sellerSubtitle">
+
+Manage your store, inventory and customer orders.
+</p>
 
       <div className="input-group">
         <input
-          className="name1"
+          className="sellerInput"
           type="text"
-          placeholder="Mobile number"
+          autoComplete="username"
+          placeholder="Enter Mobile number"
           value={phone}
           onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
         />
@@ -47,8 +63,9 @@ function Login() {
 
       <div className="input-group">
         <input
-          className="name1"
+          className="sellerInput"
           type="password"
+          autoComplete="current-password"
           placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -57,15 +74,15 @@ function Login() {
 
       {error && <p className="statusMsg error">{error}</p>}
 
-      <button type="button" className="bt" onClick={handleLogin} disabled={loading}>
-        {loading ? 'Logging in...' : 'Login'}
+      <button type="button" className="sellerLoginBtn" onClick={handleLogin} disabled={loading}>
+        {loading ? 'Signing in...' : 'Sign In'}
       </button>
 
-      <div className="forgotPassword">
-        <Link to="/password-recovery" className="simpleLink">
+      <div className="sellerLinks">
+        <Link to="/password-recovery" className="sellerLink">
           Forgot Password?
         </Link>
-        <Link to="/regseller" className="simpleLink">
+        <Link to="/regseller" className="sellerLink">
           Not a member? Register
         </Link>
       </div>
@@ -74,4 +91,3 @@ function Login() {
   );
 }
 
-export default Login;

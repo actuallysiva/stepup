@@ -1,36 +1,22 @@
-export default function SellerLayout({children}){
+import SellerSidebar from "../seller-sidebar";
+import "../styles/seller-layout.css";
 
-    return(
+export default function SellerLayout({ children }) {
 
-        <div className="sellerPage">
+    return (
 
-       {/*     <div className="sellerSidebar">
+        <div className="sellerLayout">
 
-                <h2>StepUP</h2>
+            <SellerSidebar />
 
-                <button>Dashboard</button>
-
-                <button>Available Stock</button>
-
-                <button>Upload Stock</button>
-
-                <button>Current Orders</button>
-
-                <button>Analytics</button>
-
-                <button>Profile</button>
-
-                <button>Logout</button>
-
-            </div> */}
-
-            <div className="sellerContent">
+            <main className="sellerContent">
 
                 {children}
 
-            </div>
+            </main>
 
         </div>
 
     );
+
 }

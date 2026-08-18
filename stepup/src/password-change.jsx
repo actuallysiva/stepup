@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { changeSellerPassword } from './api';
 import { useApp } from './context/AppContext';
 
+import "./styles/password-change.css";
+
+import {
+    LockKeyhole,
+    ShieldCheck
+} from "lucide-react";
+
 export default function ChangePassword() {
   const navigate = useNavigate();
   const { seller } = useApp();
@@ -14,7 +21,7 @@ export default function ChangePassword() {
   const [message, setMessage] = useState('');
 
   if (!seller?.sellerid) {
-    navigate('/login');
+    navigate('/signin');
     return null;
   }
 
@@ -41,27 +48,86 @@ export default function ChangePassword() {
   };
 
   return (
-    <div className="centered-page">
-      <div className="changePasswordCard">
-        <h2>Create New Password</h2>
-        <p>Your new password must be different from previous passwords.</p>
+    <div className="sellerAuthPage">
 
-        <div className="passwordInput">
-          <input type="password" placeholder="Current Password" value={current}
-            onChange={(e) => setCurrent(e.target.value)} />
-          <input type="password" placeholder="Enter New Password" value={password}
-            onChange={(e) => setPassword(e.target.value)} />
-          <input type="password" placeholder="Confirm Password" value={confirm}
-            onChange={(e) => setConfirm(e.target.value)} />
-        </div>
+    <div className="changePasswordCard">
+        <div className="pageIcon">
+
+    <LockKeyhole size={34}/>
+
+</div>
+
+<h2>Change Password</h2>
+
+<p className="sellerSubtitle">
+
+Keep your seller account secure by choosing a strong password.
+
+</p>
+
+        <div className="passwordSection">
+
+    <h3>
+
+        <ShieldCheck size={20}/>
+
+        Password Details
+
+    </h3>
+
+    <div className="passwordColumn">
+
+        <input
+            className="sellerInput"
+            type="password"
+            placeholder="Current Password"
+            value={current}
+            onChange={(e)=>setCurrent(e.target.value)}
+        />
+
+        <input
+            className="sellerInput"
+            type="password"
+            placeholder="New Password"
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}
+        />
+
+        <input
+            className="sellerInput"
+            type="password"
+            placeholder="Confirm New Password"
+            value={confirm}
+            onChange={(e)=>setConfirm(e.target.value)}
+        />
+
+    </div>
+
+</div>
 
         {error && <p className="statusMsg error">{error}</p>}
         {message && <p className="statusMsg">{message}</p>}
 
-        <button type="button" onClick={handleUpdate} disabled={loading}>
-          {loading ? 'Updating...' : 'Update Password'}
+<button
+    type="button"
+    className="sellerRegisterBtn"
+    onClick={handleUpdate}
+    disabled={loading}
+>          {loading ? 'Updating...' : 'Update Password'}
         </button>
-        <button type="button" className="linkBtn" onClick={() => navigate('/dashboardseller')}>Back</button>
+<div className="authFooter">
+
+    <button
+        type="button"
+        className="backLink"
+        onClick={() => navigate('/dashboardseller')}
+    >
+
+        ← Back to Dashboard
+
+    </button>
+
+</div>
       </div>
     </div>
   );

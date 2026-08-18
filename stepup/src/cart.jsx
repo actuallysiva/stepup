@@ -4,6 +4,9 @@ import { getCart, removeCartItem, updateCartItem } from './api';
 import { useApp } from './context/AppContext';
 import { formatPrice, resolveImageUrl } from './utils/helpers';
 
+import "./styles/cart.css";
+import { Trash2, ArrowLeft } from "lucide-react";
+
 export default function Cart() {
   const navigate = useNavigate();
   const { user, setCheckout } = useApp();  
@@ -66,44 +69,61 @@ export default function Cart() {
 
   return (
     <div className="cartContainer">
-      <div className="topContainer">
-        <h1>Shopping Cart</h1>
+      <div className="cartHeader">
         <button type="button" className="continueShoppingBtn" onClick={() => navigate('/')}>
-          Continue Shopping
+          <ArrowLeft size={18} />
+    <span>Continue Shopping</span>
         </button>
+        <h1>Shopping Cart
+          <span className="cartCount">
+        ({items.length})
+    </span>
+        </h1>
+        
       </div>
 
       {error && <p className="statusMsg error">{error}</p>}
 
       <div className="cartContent">
-        <div className="middleContainer">
+        <div className="cartItems">
           {!items.length ? (
             <p className="statusMsg">Your cart is empty.</p>
           ) : (
             items.map((item) => (
               <div className="cartItem" key={item.cartitem_id}>
                 <img src={resolveImageUrl(item.image)} alt={item.prod_name} />
-                <div className="itemDetails">
+                <div className="cartItemInfo">
                   <h3>{item.prod_name}</h3>
-                  <p>Size: {item.size}</p>
-                  <p>Color: {item.color}</p>
-                  <p>Price: {formatPrice(item.price)}</p>
-                  <div className="quantityContainer">
-                    <button type="button" onClick={() => handleQuantity(item, -1)}>-</button>
+                  <p className="cartVariant">
+
+    {item.color} • UK {item.size}
+
+</p>
+
+<p className="cartPrice">
+
+    {formatPrice(item.price)}
+
+</p>
+                  <div className="cartQuantity">
+                    <button type="button" onClick={() => handleQuantity(item, -1)}>−</button>
                     <span>{item.quantity}</span>
                     <button type="button" onClick={() => handleQuantity(item, 1)}>+</button>
                   </div>
                 </div>
                 <button type="button" className="removeBtn" onClick={() => handleRemove(item.cartitem_id)}>
-                  Remove
+                  <Trash2 size={18} />
                 </button>
               </div>
             ))
           )}
         </div>
 
-        <div className="bottomContainer">
+        <div className="cartSummary">
           <h2>Order Summary</h2>
+
+         <div className="summarySection">
+
           <div className="billRow">
             <span>Subtotal</span>
             <span>{formatPrice(cart?.subtotal || 0)}</span>
@@ -111,6 +131,17 @@ export default function Cart() {
           <div className="billRow">
             <span>Delivery</span>
             <span>{formatPrice(cart?.delivery_fee || 99)}</span>
+          </div>
+          <div className="billRow">
+            <span>Estimated Delivery</span>
+            <span>2–4 Days</span>
+          </div>
+          </div>
+            <div className="summarySection">
+            <div className="billRow">
+              <span>Secure Payment</span>
+              <span>SSL Encrypted</span>
+            </div>
           </div>
           <div className="billRow totalRow">
             <span>Total</span>

@@ -4,6 +4,19 @@ import SellerLayout from './layouts/SellerLayout';
 import { uploadImage, uploadStock } from './api';
 import { useApp } from './context/AppContext';
 
+import {
+    Package,
+    Image,
+    Layers3,
+    Upload,
+    Plus,
+    Trash2
+} from "lucide-react";
+
+import "./styles/uploadstock.css";
+
+
+
 export default function UploadStock() {
   const navigate = useNavigate();
   const { seller } = useApp();
@@ -17,7 +30,7 @@ export default function UploadStock() {
   const [error, setError] = useState('');
 
   if (!seller?.sellerid) {
-    navigate('/login');
+    navigate('/signin');
     return null;
   }
 
@@ -98,11 +111,25 @@ export default function UploadStock() {
     <SellerLayout>
       <div className="containerUploadStock">
         <div className="uploadCard">
-          <h2>Upload New Stock</h2>
-          
+<div className="uploadHeader">
+
+    <h1>Add New Product</h1>
+
+    <p>
+
+        Publish products to your StepUP catalogue.
+
+    </p>
+
+</div>          
           <div className="productSection">
-            <h3>Product Details</h3>
-            <div className="containerInput">
+<h3 className="sectionHeading">
+
+<Package size={20}/>
+
+Product Information
+
+</h3>            <div className="containerInput">
               <input type="text" placeholder="Product Name" value={productForm.prod_name}
                 onChange={(e) => handleProductChange('prod_name', e.target.value)} />
               <select value={productForm.category} onChange={(e) => handleProductChange('category', e.target.value)}>
@@ -118,7 +145,13 @@ export default function UploadStock() {
           </div>
 
           <div className="variantsSection">
-            <h3>Variants (Size & Color)</h3>
+<h3 className="sectionHeading">
+
+<Layers3 size={20}/>
+
+Product Variants
+
+</h3>
             {variants.map((variant, index) => (
               <div key={index} className="variantRow">
                 <div className="containerInput">
@@ -136,31 +169,37 @@ export default function UploadStock() {
                 </div>
                 {variants.length > 1 && (
                   <button type="button" className="removeVariantBtn" onClick={() => removeVariant(index)}>
-                    Remove Variant
-                  </button>
+<>
+<Trash2 size={18}/>
+Remove
+</>                  </button>
                 )}
               </div>
             ))}
             <button type="button" className="addVariantBtn" onClick={addVariant}>
-              + Add Another Variant
-            </button>
+<>
+<Plus size={18}/>
+Add Variant
+</>            </button>
           </div>
 
           {error && <p className="statusMsg error">{error}</p>}
 
           <div className="uploadActions">
             <button type="button" onClick={handleSubmit} disabled={loading}>
-              {loading ? 'Uploading...' : 'Upload Stock'}
+              {loading ? 'Uploading...' : <>
+<Upload size={18}/>
+
+Publish Product
+
+</>}
             </button>
             <button type="button" className="secondaryBtn" onClick={handleReset}>Reset</button>
-            <button type="button" className="secondaryBtn" onClick={() => navigate('/dashboardseller')}>
-              Back to Dashboard
-            </button>
           </div>
 
           <div className="containerUploadAvailable">
-            <button type="button" className="linkBtn" onClick={() => navigate('/availablestockseller')}>
-              Check Availability
+            <button type="button" className="linkBtn" onClick={() => navigate('/inventory')}>
+              View Inventory
             </button>
           </div>
         </div>

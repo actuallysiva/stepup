@@ -5,6 +5,10 @@ import { sendOtp, verifyOtp, getUserByPhone } from './api';
 import { useApp } from './context/AppContext';
 import { handleOtpInput, handleOtpKeyDown, readOtpFromRefs } from './utils/helpers';
 
+import "./styles/verification.css";
+import { Smartphone } from "lucide-react";
+
+
 export default function Verification() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -86,12 +90,15 @@ export default function Verification() {
       <CheckoutSteps step={1} />
       <div className="checkoutContent">
         <div className="verificationCard">
+             <Smartphone size={34} />
+            
           <h2>Mobile Verification</h2>
-          <p className="verificationText">Verify your mobile number before placing the order</p>
+          <p className="verificationText">
+              Verify your mobile number to continue your purchase securely.</p>
 
           <div className="verifyMobile">
             <div className="phoneInputWrapper">
-              <span className="countryCode">+91 India</span>
+              <span className="countryCode">(India)+91</span>
               <input
                 type="text"
                 placeholder="Enter Mobile Number"
@@ -107,7 +114,7 @@ export default function Verification() {
 
           {otpSent && (
             <div className="verifyOtp">
-              <h3>Enter OTP</h3>
+              <h3>Verification Code</h3>
               <div className="otpGroup">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <input

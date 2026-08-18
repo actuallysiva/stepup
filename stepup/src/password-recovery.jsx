@@ -3,6 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { resetSellerPassword, sendOtp } from './api';
 import { handleOtpInput, handleOtpKeyDown, readOtpFromRefs } from './utils/helpers';
 
+import "./styles/password-recovery.css";
+
+import {
+    ShieldCheck,
+    Smartphone,
+    KeyRound
+} from "lucide-react";
+
 export default function PasswordRecovery() {
   const navigate = useNavigate();
   const [phone, setPhone] = useState('');
@@ -17,7 +25,8 @@ export default function PasswordRecovery() {
     if (!phone) { setError('Enter mobile number'); return; }
     setLoading(true);
     try {
-      await sendOtp(phone);
+      const response = await sendOtp(phone);
+          alert(`Development OTP: ${response.otp}`);
       setOtpSent(true);
       setError('');
     } catch (err) {
@@ -39,7 +48,7 @@ export default function PasswordRecovery() {
         new_password: password,
         confirm_password: confirm,
       });
-      navigate('/login');
+      navigate('/signin');
     } catch (err) {
       setError(err.message);
     } finally {
@@ -48,20 +57,57 @@ export default function PasswordRecovery() {
   };
 
   return (
-    <div className="centered-page">
-      <div className="recoveryCard">
-        <h2>Password Recovery</h2>
-        <p>Enter your registered mobile number</p>
+    <div className="sellerAuthPage">
 
-        <div className="containerInputdetail">
-          <input type="text" placeholder="Mobile Number" value={phone}
-            onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))} />
-          <button type="button" onClick={handleSend} disabled={loading}>Send OTP</button>
-        </div>
+    <div className="recoveryCard">
+        <div className="pageIcon">
+
+    <ShieldCheck size={34}/>
+
+</div>
+
+<h2>Password Recovery</h2>
+
+<p className="sellerSubtitle">
+
+Recover access to your seller account securely.
+
+</p>
+<div className="recoveryPhone">
+
+    <div className="recoveryInput">
+
+        <Smartphone size={18}/>
+
+        <input
+            type="text"
+            placeholder="Registered Mobile Number"
+            value={phone}
+            onChange={(e)=>setPhone(e.target.value.replace(/\D/g,''))}
+        />
+
+    </div>
+
+    <button
+        type="button"
+        className="sendOtpBtn"
+        onClick={handleSend}
+        disabled={loading}
+    >
+        {loading ? "Sending..." : "Send OTP"}
+    </button>
+
+</div>
 
         {otpSent && (
           <div className="passwordOTP">
-            <h3>Enter OTP & New Password</h3>
+<h3>
+
+<KeyRound size={20}/>
+
+Verify & Create New Password
+
+</h3>
             <div className="otpInputs">
               {Array.from({ length: 6 }).map((_, i) => (
                 <input key={i} maxLength={1}
@@ -71,15 +117,31 @@ export default function PasswordRecovery() {
               ))}
             </div>
             <button type="button" className="linkBtn" onClick={handleSend}>Resend OTP</button>
+            <div className="passwordGrid">
             <input type="password" placeholder="New Password" value={password}
               onChange={(e) => setPassword(e.target.value)} />
             <input type="password" placeholder="Confirm Password" value={confirm}
               onChange={(e) => setConfirm(e.target.value)} />
-            <button type="button" onClick={handleReset} disabled={loading}>Reset Password</button>
+              </div>
+            <button type="button" onClick={handleReset} disabled={loading}>Update Password</button>
           </div>
         )}
 
         {error && <p className="statusMsg error">{error}</p>}
+
+        <div className="authFooter">
+
+    <button
+        type="button"
+        className="backLink"
+        onClick={()=>navigate("/signin")}
+    >
+
+        ← Back to Sign In
+
+    </button>
+
+</div>
       </div>
     </div>
   );

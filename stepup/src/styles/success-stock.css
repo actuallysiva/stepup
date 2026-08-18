@@ -1,0 +1,141 @@
+/* ========================================
+   SUCCESS STOCK
+   ======================================== */
+
+.successStockCard{
+
+    width:100%;
+
+    max-width:760px;
+
+    margin:40px auto;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border-color);
+
+    border-radius:28px;
+
+    padding:48px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-lg);
+}
+
+.successStockCard .imageContainer{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:24px;
+}
+
+.successStockCard .imageContainer img{
+
+    width:150px;
+
+    height:150px;
+
+    object-fit:contain;
+}
+
+/* ---------- Features ---------- */
+
+.successFeatures{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    margin:36px 0;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    background:var(--bg-secondary);
+
+    border:1px solid var(--border-color);
+}
+
+.successFeatures div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:var(--text-primary);
+
+    font-size:15px;
+
+    font-weight:500;
+}
+
+.successFeatures svg{
+
+    color:var(--accent-primary);
+
+    flex-shrink:0;
+}
+
+/* ---------- Buttons ---------- */
+
+.successButtons{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:36px;
+}
+
+.successButtons button{
+
+    flex:1;
+}
+
+.successButtons .secondaryBtn{
+
+    height:56px;
+
+    border-radius:16px;
+
+    border:1px solid var(--border-color);
+
+    background:var(--bg-secondary);
+
+    color:var(--text-primary);
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.successButtons .secondaryBtn:hover{
+
+    border-color:var(--accent-primary);
+
+    color:var(--accent-primary);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:768px){
+
+    .successStockCard{
+
+        padding:30px;
+    }
+
+    .successButtons{
+
+        flex-direction:column;
+    }
+
+}

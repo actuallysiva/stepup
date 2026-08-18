@@ -1,0 +1,309 @@
+/* ========================================
+   CURRENT ORDERS
+   ======================================== */
+
+.availableContainer{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+}
+.ordersHeader{
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border-color);
+
+    border-radius:24px;
+
+    padding:36px;
+
+    box-shadow:var(--shadow-sm);
+}
+
+.ordersHeader h1{
+
+    color:var(--text-primary);
+
+    font-size:38px;
+
+    margin-bottom:10px;
+}
+
+.ordersHeader p{
+
+    color:var(--text-secondary);
+
+    font-size:15px;
+}
+.orderCard{
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border-color);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    transition:.25s;
+
+    box-shadow:var(--shadow-sm);
+}
+
+.orderCard:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--accent-primary);
+
+    box-shadow:var(--shadow-md);
+}
+.orderTop{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:26px;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid var(--border-color);
+}
+
+.orderTop h2{
+
+    color:var(--text-primary);
+
+    font-size:26px;
+
+    margin-bottom:12px;
+}
+.statusBadge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+.statusBadge.pending{
+
+    background:#fef3c7;
+
+    color:#b45309;
+}
+
+.statusBadge.packed{
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+}
+
+.statusBadge.shipped{
+
+    background:#ede9fe;
+
+    color:#6d28d9;
+}
+
+.statusBadge.delivered{
+
+    background:#dcfce7;
+
+    color:#15803d;
+}
+
+.statusBadge.cancelled{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+}
+.orderPrice{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--accent-primary);
+}
+.customerInfo{
+
+    display:flex;
+
+    gap:30px;
+
+    margin-bottom:24px;
+
+    flex-wrap:wrap;
+}
+
+.customerInfo div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--text-secondary);
+}
+.orderedProducts{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    margin-bottom:28px;
+}
+
+.orderedItem{
+
+    background:var(--bg-secondary);
+
+    border-radius:18px;
+
+    padding:18px 20px;
+
+    border:1px solid var(--border-color);
+}
+
+.orderedItem h4{
+
+    color:var(--text-primary);
+
+    margin-bottom:8px;
+
+    font-size:17px;
+}
+
+.orderedItem p{
+
+    color:var(--text-secondary);
+
+    font-size:14px;
+}
+.orderActions{
+
+    display:flex;
+
+    gap:16px;
+
+    flex-wrap:wrap;
+}
+.orderActions button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:var(--accent-gradient);
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.25s;
+}
+
+.orderActions button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-glow);
+}
+.emptyOrders{
+
+    background:var(--bg-card);
+
+    border:2px dashed var(--border-color);
+
+    border-radius:24px;
+
+    padding:70px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+.emptyOrders svg{
+
+    color:var(--accent-primary);
+
+    margin-bottom:22px;
+}
+
+.emptyOrders h2{
+
+    color:var(--text-primary);
+
+    margin-bottom:12px;
+}
+
+.emptyOrders p{
+
+    color:var(--text-secondary);
+}
+.completedOrder{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 22px;
+
+    border-radius:14px;
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+    font-weight:600;
+}

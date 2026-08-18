@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getProducts } from '../api';
 import { resolveImageUrl } from '../utils/helpers';
-import Component from '../component';
+import ProductCard from '../ProductCard';
 import { useApp } from '../context/AppContext';
 
 export default function ProductGrid({ category }) {
@@ -85,9 +85,9 @@ export default function ProductGrid({ category }) {
           </button>
         </div>
       )}
-      <div className="card-elements">
+      <div className="productGrid">
         {products.map((product) => (
-          <Component
+          <ProductCard
             key={product.prod_id}
             id={product.prod_id}
             name={product.prod_name}

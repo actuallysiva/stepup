@@ -1,0 +1,193 @@
+/* ========================================
+   SUCCESS PAGE
+   ======================================== */
+
+.successContainer{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+}
+.greetings{
+
+    width:100%;
+    max-width:700px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border-color);
+
+    border-radius:28px;
+
+    padding:56px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-lg);
+
+    transition:var(--transition-normal);
+}
+.imageContainer{
+
+    width:140px;
+
+    height:140px;
+
+    margin:0 auto 30px;
+}
+
+.imageContainer img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+}
+.greetings h2{
+
+    color:var(--text-primary);
+
+    font-size:34px;
+
+    margin-bottom:16px;
+
+    font-weight:700;
+}
+.successSubtitle{
+
+    color:var(--text-secondary);
+
+    font-size:16px;
+
+    line-height:1.7;
+
+    max-width:420px;
+
+    margin:0 auto 42px;
+}
+.successSummary{
+
+    background:var(--bg-secondary);
+
+    border:1px solid var(--border-color);
+
+    border-radius:20px;
+
+    padding:28px;
+
+    margin-bottom:40px;
+}
+.summaryRow{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 0;
+
+    border-bottom:1px solid var(--border-color);
+}
+.summaryRow:last-child{
+
+    border-bottom:none;
+}
+.summaryRow span{
+
+    color:var(--text-secondary);
+}
+.summaryRow strong{
+
+    color:var(--text-primary);
+
+    font-weight:600;
+}
+.successButtons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+}
+.primaryBtn{
+
+    width:280px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:var(--accent-gradient);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+.primaryBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-glow);
+}
+.secondaryBtn{
+
+    width:180px;
+
+    height:58px;
+
+    border-radius:16px;
+
+    background:var(--bg-secondary);
+
+    border:1px solid var(--border-color);
+
+    color:var(--text-primary);
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+.secondaryBtn:hover{
+
+    border-color:var(--accent-primary);
+
+    color:var(--accent-primary);
+}
+.imageContainer{
+
+    animation:successPop .6s ease;
+}
+@keyframes successPop{
+
+    0%{
+
+        transform:scale(.6);
+
+        opacity:0;
+    }
+
+    70%{
+
+        transform:scale(1.08);
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+    }
+}

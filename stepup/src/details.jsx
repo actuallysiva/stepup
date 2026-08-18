@@ -4,6 +4,9 @@ import { addToCart, addToWishlist, getProduct } from './api';
 import { useApp } from './context/AppContext';
 import { formatPrice, resolveImageUrl } from './utils/helpers';
 
+import "./styles/details.css";
+import { Heart } from "lucide-react";
+
 export default function Details() {
   const { prodId } = useParams();
   const navigate = useNavigate();
@@ -114,23 +117,67 @@ export default function Details() {
 
   return (
     <div className="detailsPage">
-      <div className="imageCard">
+      <div className='detailsContainer'>
+        <div className="productGallery">
         <img src={imageUrl} alt={product.prod_name} />
       </div>
 
-      <div className="productDetails">
-        <div className="productTitle">
-          <h2>{product.prod_name}</h2>
-          <p className="rating">★★★★☆</p>
-        </div>
+      
 
-        <div className="description">
-          <p>{product.dscrptn}</p>
-        </div>
+      <div className="detailsInfo">
+      <div className="detailsHeader">
 
-        <div className="selectSize">
-          <h3>Select Size</h3>
-          <div className="buttonGroup">
+  <h1 className="detailsName">
+    {product.prod_name}
+  </h1>
+
+  <div className="productMeta">
+    <span className="rating">★★★★☆</span>
+    <span className="reviewCount">
+      4.8 (126 Reviews)
+    </span>
+  </div>
+
+  <div className="priceStockRow">
+
+    <h2 className="detailsPrice">
+      {formatPrice(selectedVariant?.price || product.min_price)}
+    </h2>
+
+    <div className="stockStatus">
+      <p
+        className={
+          selectedVariant?.stockquantity > 0
+            ? "stockAvailable"
+            : "stockUnavailable"
+        }
+      >
+        {selectedVariant?.stockquantity > 0
+          ? `In Stock • ${selectedVariant.stockquantity} left`
+          : "Out of Stock"}
+      </p>
+    </div>
+
+  </div>
+
+</div>
+ 
+
+        <div className="detailsDescription">
+
+    <h3>Description</h3>
+
+    <p>
+        {product.dscrptn}
+    </p>
+
+</div>
+
+<div className='detailsOptions'>
+
+        <div className="sizeSection">
+          <h3>Size</h3>
+          <div className="sizeOptions">
             {product.available_sizes.map((size) => (
               <button
                 key={size}
@@ -144,9 +191,9 @@ export default function Details() {
           </div>
         </div>
 
-        <div className="selectColor">
-          <h3>Select Color</h3>
-          <div className="buttonGroup">
+        <div className="colorSection">
+          <h3>Color</h3>
+          <div className="colorOptions">
             {product.available_colors.map((color) => (
               <button
                 key={color}
@@ -160,26 +207,34 @@ export default function Details() {
           </div>
         </div>
 
-        <div className="stockStatus">
-          <h4>
-            {selectedVariant?.stockquantity > 0 ? 'In Stock' : 'Out of Stock'}
-            {selectedVariant ? ` (${selectedVariant.stockquantity} left)` : ''}
-          </h4>
-        </div>
+ </div>
 
-        <div className="price">
-          <h2>{formatPrice(selectedVariant?.price || product.min_price)}</h2>
-        </div>
+        
 
         {error && <p className="statusMsg error">{error}</p>}
         {message && <p className="statusMsg">{message}</p>}
 
-        <div className="proceed">
-          <button type="button" onClick={handleBuyNow}>Buy Now</button>
-          <button type="button" onClick={handleAddToCart}>Add to Cart</button>
-          <button type="button" onClick={handleAddToWishlist}>Add to Wishlist</button>
+        <div className="detailsActions">
+          <button className="addCartBtn" type="button" onClick={handleAddToCart}>
+  Add to Cart
+</button>
+
+<button className="buyNowBtn" type="button" onClick={handleBuyNow}>
+  Buy Now
+</button>
+
+<button
+    className="wishlistBtn"
+    type="button"
+    onClick={handleAddToWishlist}
+>
+    <Heart size={18} />
+    <span>Add to Wishlist</span>
+</button>
         </div>
       </div>
+            </div>
+
     </div>
   );
 }

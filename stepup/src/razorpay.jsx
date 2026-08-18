@@ -5,6 +5,15 @@ import { createRazorpayOrder, verifyRazorpayPayment } from './api';
 import { useApp } from './context/AppContext';
 import { formatPrice } from './utils/helpers';
 
+
+import "./styles/razorpay.css";
+
+import {
+    ShieldCheck,
+    CreditCard,
+    Lock
+} from "lucide-react";
+
 export default function Razorpay() {
   const navigate = useNavigate();
   const { lastOrder } = useApp();
@@ -114,35 +123,79 @@ export default function Razorpay() {
       <CheckoutSteps step={3} />
       <div className="checkoutContent">
         <div className="razorpayCard">
-        <div className="titleContainer">
-          <h1>Pay with Razorpay</h1>
-          <p>Secure payment via Razorpay - Cards, UPI, Net Banking, Wallets</p>
+        <div className="razorpayHeader">
+          <div className="pageIcon">
+    <CreditCard size={30}/>
+</div>
+
+<h2>Secure Payment</h2>
+
+<p>
+
+Complete your purchase securely using Razorpay.
+
+</p>
         </div>
 
-        <div className="paymentSummary">
-          <h3>Order Total</h3>
-          <h2>{formatPrice(total)}</h2>
+        <div className="paymentAmountCard">
+          <p>Total Amount</p>
+
+<h2>{formatPrice(total)}</h2>
         </div>
 
-        <div className="qrContainer" style={{ flexDirection: 'column', textAlign: 'center' }}>
-          <div className="detailsQr">
-            <h3>Payment Methods Supported</h3>
-            <p>Credit/Debit Cards</p>
-            <p>UPI (Google Pay, PhonePe, Paytm)</p>
-            <p>Net Banking</p>
-            <p>Wallets (Paytm, Amazon Pay, etc.)</p>
-            <p className="paymentInfo">Your payment is secured by Razorpay</p>
-          </div>
+        <div className="paymentInfocard">
+          
+
+<div className="paymentMethods">
+<h3>
+
+<ShieldCheck size={20}/>
+
+Supported Payment Methods
+
+</h3>
+  <div className="methodItem">
+    <span className="checkIcon">✓</span>
+    <span>Credit & Debit Cards</span>
+  </div>
+
+  <div className="methodItem">
+    <span className="checkIcon">✓</span>
+    <span>UPI (Google Pay, PhonePe, Paytm)</span>
+  </div>
+
+  <div className="methodItem">
+    <span className="checkIcon">✓</span>
+    <span>Net Banking</span>
+  </div>
+
+  <div className="methodItem">
+    <span className="checkIcon">✓</span>
+    <span>Wallets</span>
+  </div>
+</div>
+
+<div className="secureInfo">
+
+<Lock size={18}/>
+
+<span>
+
+Your payment is encrypted and securely processed by Razorpay.
+
+</span>
+
+</div>
         </div>
 
         {error && <p className="statusMsg error">{error}</p>}
 
         <div className="paymentActions">
           <button type="button" onClick={handlePayment} disabled={loading}>
-            {loading ? 'Processing...' : 'Pay Now'}
+            {loading ? 'Opening Razorpay...' : 'Proceed to Pay ->'}
           </button>
           <button type="button" className="secondaryBtn" onClick={() => navigate('/confirmation')} disabled={loading}>
-            Back
+            Back to Review
           </button>
         </div>
         </div>

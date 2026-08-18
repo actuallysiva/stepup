@@ -5,6 +5,13 @@ import { getCart, placeOrder } from './api';
 import { useApp } from './context/AppContext';
 import { formatPrice, resolveImageUrl } from './utils/helpers';
 
+import "./styles/confirmation.css";
+import {
+    ReceiptText,
+    MapPin,
+    Package,
+    CreditCard
+} from "lucide-react";
 export default function Confirmation() {
   const navigate = useNavigate();
   const { user, checkout, setLastOrder, setCheckout } = useApp();
@@ -89,56 +96,146 @@ if (checkout.paymentMethod === 'Razorpay') {
     <div className="checkoutLayout">
       <CheckoutSteps step={3} />
       <div className="checkoutContent">
-        <div className="confirmationPage">
+        <div className="confirmationContainer">
           <div className="confirmationCard">
-            <div className="titleConfirmation">
-              <h2>Order Confirmation</h2>
-              <p>Please verify all details before placing your order.</p>
-            </div>
+            <div className="confirmationHeader">
 
-            <div className="detailsPurchase">
-              <h3>Product Details</h3>
-              {!items.length ? (
+    <div className="pageIcon">
+        <ReceiptText size={30}/>
+    </div>
+
+    <h2>Review Your Order</h2>
+
+    <p>
+        Please review your order details before proceeding to payment.
+    </p>
+
+</div>
+
+            <div className="orderItems">
+<h3>
+    <Package size={20}/>
+    Items
+</h3>              {!items.length ? (
                 <p className="statusMsg">No items in order.</p>
               ) : (
                 items.map((item, idx) => (
-                  <div className="detailsProduct" key={item.cartitem_id || idx}>
-                    <img src={resolveImageUrl(item.image)} alt={item.prod_name} />
-                    <div>
-                      <h4>Name : {item.prod_name}</h4>
-                      <h4>Size : {item.size}</h4>
-                      <h4>Color : {item.color}</h4>
-                      <h4>Quantity : {item.quantity}</h4>
-                      <h4>Price : {formatPrice(item.price || item.line_total)}</h4>
-                    </div>
+                  <div className="orderItemCard" key={item.cartitem_id || idx}>
+<div className="itemImage">
+
+    <img
+        src={resolveImageUrl(item.image)}
+        alt={item.prod_name}
+    />
+
+</div>                    <div className="itemInfo">
+
+    <h4>{item.prod_name}</h4>
+
+    <p>Color : {item.color}</p>
+
+    <p>Size : UK {item.size}</p>
+
+    <p>Quantity : {item.quantity}</p>
+
+    <h3>{formatPrice(item.price || item.line_total)}</h3>
+
+</div>
                   </div>
                 ))
               )}
+
+              <button
+    className="editLink"
+    onClick={() => navigate("/cart")}
+>
+
+    Edit Cart
+
+</button>
             </div>
 
-            <div className="detailsUser">
-              <h3>Delivery Details</h3>
-              <h4>Name : {user.name}</h4>
-              <h4>Mobile : {user.phone}</h4>
-              <h4>Address : {addressLine}</h4>
-              <h4>Payment Mode : {checkout.paymentMethod}</h4>
+            <div className="shippingCard">
+              <h3> <MapPin size={20}/>
+    Delivery Address</h3>
+              <p>{user.name}</p>
+
+<p>{user.phone}</p>
+
+<p>{addressLine}</p>
+
+<button
+    className="editLink"
+    onClick={() => navigate("/personal-details")}
+>
+    Edit Address
+</button>
             </div>
+            <div className="paymentSummary">
+
+    <h3>
+
+        <CreditCard size={20}/>
+
+        Payment Method
+
+    </h3>
+
+    <div className="paymentMethodCard">
+
+        {checkout.paymentMethod === "Razorpay" ? (
+
+            <>
+
+                <h4>Razorpay</h4>
+
+                <p>Cards • UPI • Net Banking</p>
+
+            </>
+
+        ) : (
+
+            <>
+
+                <h4>Cash on Delivery</h4>
+
+                <p>Pay after delivery</p>
+
+            </>
+
+        )}
+
+    </div>
+
+</div>
 
             <div className="orderSummary">
               <h3>Order Summary</h3>
-              <h4>Product Total : {formatPrice(subtotal)}</h4>
-              <h4>Shipping : {delivery ? formatPrice(delivery) : 'Free'}</h4>
-              <h2>Total : {formatPrice(total)}</h2>
+
+<div className="billRow">
+    <span>Subtotal</span>
+    <span>{formatPrice(subtotal)}</span>
+</div>
+
+<div className="billRow">
+    <span>Delivery</span>
+    <span>{delivery ? formatPrice(delivery) : "Free"}</span>
+</div>
+
+<div className="billRow totalRow">
+    <span>Total</span>
+    <span>{formatPrice(total)}</span>
+</div>
             </div>
 
             {error && <p className="statusMsg error">{error}</p>}
 
-            <div className="confirmOrder">
+            <div className="confirmationActions">
               <button type="button" onClick={handleConfirm} disabled={submitting || !items.length}>
-                {submitting ? 'Placing Order...' : 'Confirm Order'}
+                {submitting ? 'Placing Order...' : 'Continue to Payment ->'}
               </button>
               <button type="button" className="linkBtn" onClick={() => navigate('/cart')}>
-                Cancel Order
+                Back to Cart
               </button>
             </div>
           </div>

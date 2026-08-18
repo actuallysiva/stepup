@@ -1,0 +1,181 @@
+/* ========================================
+   SELLER SIDEBAR
+   ======================================== */
+
+.sellerSidebar{
+
+    width:260px;
+
+    position:sticky;
+
+    top:64px;
+
+    height:calc(100dvh - 64px);
+
+    background:var(--bg-card);
+
+    border-right:1px solid var(--border-color);
+
+    padding:26px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex-shrink:0;
+}
+
+.sellerSidebarBrand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:28px;
+
+    color:var(--accent-primary);
+
+    padding-bottom: 24px;
+
+
+}
+
+.sellerSidebarBrand h3{
+
+    margin:0;
+
+    font-size:16px;
+
+    letter-spacing:2px;
+}
+
+.sellerSidebarBrand span{
+
+    color:var(--text-secondary);
+
+    font-size:13px;
+    display:block;
+
+    margin-top:4px;
+}
+
+.sellerNav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+.sellerNavItem{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    height:48px;
+
+    padding:0 16px;
+
+    border-radius:14px;
+
+    color:var(--text-secondary);
+
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+.sellerNavItem:hover{
+
+    background:rgba(59,130,246,.08);
+
+    color:var(--accent-primary);
+}
+
+.sellerNavItem.active{
+
+    background:var(--accent-gradient);
+
+    color:#fff;
+
+    box-shadow:var(--shadow-glow);
+}
+
+.sellerSidebarBottom{
+
+    margin-top:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+.sellerLogout{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    height:48px;
+
+    padding:0 16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:none;
+
+    color:#ef4444;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.sellerLogout:hover{
+
+    background:#ef4444;
+
+    color:#fff;
+}
+
+.sellerOnline{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:10px;
+
+    font-size:13px;
+
+    color:#16a34a;
+
+    font-weight:600;
+}
+
+.sellerOnline::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#16a34a;
+}

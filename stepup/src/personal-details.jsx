@@ -4,6 +4,9 @@ import CheckoutSteps from './step-component.jsx';
 import { getUserByPhone, registerUser, updateUser } from './api';
 import { useApp } from './context/AppContext';
 
+import "./styles/personal-details.css";
+import { MapPin } from 'lucide-react';
+
 export default function Personal() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -108,62 +111,79 @@ export default function Personal() {
     <div className="checkoutLayout">
       <CheckoutSteps step={2} />
       <div className="checkoutContent">
-        <div className="form-container">
-          <div className="form-title">
-            <div className="input-group">
-              <input className="input2" type="text" placeholder="Name" value={form.name}
+        <div className="checkoutForm">
+          <div className="checkoutFormCard">
+            <div className="pageIcon">
+
+<MapPin size={30} strokeWidth={2.3}/>
+</div>
+            <h2>Shipping Information</h2>
+
+    <p className="formSubtitle">
+        Tell us where you'd like your order delivered.
+    </p>
+                <div className="sectionTitle"><h3>Contact Information</h3></div>
+
+            <div className="formGroup">
+              <input className="formInput" type="text" placeholder="Full Name" value={form.name}
                 onChange={(e) => handleChange('name', e.target.value)} />
             </div>
-            <div className="input-group">
-              <input className="input2" type="text" placeholder="Mobile" value={form.phone}
+            <div className="formGroup">
+              <input className="formInput" type="text" placeholder="Mobile Number" value={form.phone}
                 onChange={(e) => handleChange('phone', e.target.value.replace(/\D/g, ''))} />
             </div>
-            <div className="input-group">
-              <input className="input2" type="email" placeholder="Email (optional)" value={form.email}
+            <div className="formGroup">
+              <input className="formInput" type="email" placeholder="Email (optional)" value={form.email}
                 onChange={(e) => handleChange('email', e.target.value)} />
             </div>
 
-            <div className="addr-details"><h5>Address</h5></div>
-            <div className="input-group">
-              <input className="addr" type="text" placeholder="House / Flat No." value={form.home_no}
+            <div className="sectionTitle"><h3>Delivery Address</h3></div>
+            <div className="doubleInput">
+            <div className="formGroup">
+              <input className="formInput" type="text" placeholder="House / Flat No." value={form.home_no}
                 onChange={(e) => handleChange('home_no', e.target.value)} />
             </div>
-            <div className="input-group">
-              <input className="addr" type="text" placeholder="Street Name" value={form.street}
+            <div className="formGroup">
+              <input className="formInput" type="text" placeholder="Street/Locality" value={form.street}
                 onChange={(e) => handleChange('street', e.target.value)} />
             </div>
-            <div className="input-group">
-              <input className="addr" type="text" placeholder="City / Town" value={form.city}
+            </div>
+            <div className="doubleInput">
+            <div className="formGroup">
+              <input className="formInput" type="text" placeholder="City" value={form.city}
                 onChange={(e) => handleChange('city', e.target.value)} />
             </div>
-            <div className="input-group">
-              <input className="addr" type="text" placeholder="State" value={form.state}
+            <div className="formGroup">
+              <input className="formInput" type="text" placeholder="State" value={form.state}
                 onChange={(e) => handleChange('state', e.target.value)} />
             </div>
-            <div className="input-group">
-              <input className="addr" type="text" placeholder="Pincode" value={form.pincode}
+            </div>
+            <div className="formGroup">
+              <input className="formInput" type="text" placeholder="Pincode" value={form.pincode}
                 onChange={(e) => handleChange('pincode', e.target.value.replace(/\D/g, ''))} />
             </div>
-
-            <div className="input-group">
+            <div className="paymentSection">
+              <h3>Payment Method</h3>
+            <div className="paymentOption">
               <label>
-                <input className="radio" type="radio" name="payment" checked={form.paymentMethod === 'Razorpay'}
+                <input className="paymentRadio" type="radio" name="payment" checked={form.paymentMethod === 'Razorpay'}
                   onChange={() => handleChange('paymentMethod', 'Razorpay')} />
-                Razorpay (Card/UPI/Net Banking)
+               <span> Razorpay <small>Card . UPI . Net Banking </small></span>
               </label>
             </div>
-            <div className="input-group">
+            <div className="paymentOption">
               <label>
-                <input className="radio" type="radio" name="payment" checked={form.paymentMethod === 'COD'}
+                <input className="paymentRadio" type="radio" name="payment" checked={form.paymentMethod === 'COD'}
                   onChange={() => handleChange('paymentMethod', 'COD')} />
-                Cash on Delivery
+               <span> Cash on Delivery <small>Pay when your order arrives</small> </span>
               </label>
+            </div>
             </div>
 
             {error && <p className="statusMsg error">{error}</p>}
 
-            <button type="button" className="bt2" onClick={handleSubmit} disabled={loading}>
-              {loading ? 'Saving...' : 'Continue'}
+            <button type="button" className="continueBtn" onClick={handleSubmit} disabled={loading}>
+              {loading ? 'Saving...' : 'Continue to Confirm'}
             </button>
           </div>
         </div>

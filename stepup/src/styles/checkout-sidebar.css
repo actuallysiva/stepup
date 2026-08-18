@@ -1,0 +1,262 @@
+/* ========================================
+   CHECKOUT STEPS
+   ======================================== */
+.checkoutLayout {
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg-primary);
+  transition: background var(--transition-normal);
+}
+
+.checkoutSteps{
+
+    width:300px;
+
+    position:sticky;
+
+    top:72px;
+
+    height:calc(100vh - 72px);
+
+    padding:40px 24px;
+
+    border-right:1px solid var(--border-color);
+
+    background:var(--bg-card);
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:var(--transition-normal);
+
+    overflow:auto;
+}
+
+.stepsList{
+
+    position:relative;
+
+    margin-bottom:40px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.stepsList::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    top:18px;
+
+    bottom:18px;
+
+    width:2px;
+
+    background:#dfe7f6;
+
+    border-radius:999px;
+}
+
+.stepWrapper{
+
+    position:relative;
+
+    margin-bottom:30px;
+}
+
+.stepWrapper:last-child{
+
+    margin-bottom:0;
+}
+
+.stepItem{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    position:relative;
+
+    z-index: 2;
+
+    color:var(--text-muted);
+
+    transition:.25s;
+
+    opacity: 1;
+
+    border-radius: 18px;
+
+}
+.activeStep .stepItem{
+
+    background:linear-gradient(
+        90deg,
+        rgba(43,107,255,.08),
+        rgba(20,184,166,.05)
+    );
+
+    border:1px solid rgba(43,107,255,.15);
+
+    box-shadow:0 8px 18px rgba(43,107,255,.08);
+}
+
+.stepCircle{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background: white;
+
+    border:2px solid #dfe7f6;
+
+    font-weight:700;
+
+    flex-shrink:0;
+
+    transition:.25s;
+
+    z-index:2;
+}
+
+.activeStep {
+  color: var(--text-primary);
+  font-weight: 700;
+  opacity:1;
+}
+
+.activeStep .stepCircle {
+  background: var(--accent-gradient);
+  border: none;
+  color: white;
+}
+
+.checkoutContent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 60px;
+  overflow-y: auto;
+}
+
+.checkoutInfo{
+
+    margin-top:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    padding-top:32px;
+
+    border-top:1px solid var(--border-color);
+}
+.checkoutInfoCard{
+
+    display:flex;
+
+    gap:12px;
+
+    padding:10px;
+
+    border-radius:16px;
+
+    background:var(--bg-secondary);
+
+    border:1px solid var(--border-color);
+
+    transition:.25s;
+}
+.checkoutIcon{
+    width:20px;
+
+    height:20px;
+
+    color:var(--accent-primary);
+
+    flex-shrink:0;
+
+    margin-top:2px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(43,107,255,.0.08);
+
+    color:var(--accent-primary);
+
+    flex-shrink:0;
+}
+.checkoutInfoCard h4{
+
+    color:var(--text-primary);
+
+    font-size:15px;
+
+    margin-bottom:4px;
+
+}
+.checkoutInfoCard p{
+
+    color:var(--text-secondary);
+
+    font-size:13px;
+
+    line-height:1.5;
+}
+
+.checkoutInfoCard:hover{
+
+    transform:translateY(-2px);
+    
+    border-color:var(--accent-primary);
+
+    box-shadow:var(--shadow-md);
+}
+
+
+.stepText h4{
+
+    color:var(--text-primary);
+
+    font-size:15px;
+
+    margin-bottom:4px;
+}
+.stepText p{
+
+    color:var(--text-secondary);
+
+    font-size:12px;
+}
+.completedStep .stepCircle{
+
+    background:var(--accent-primary);
+
+    color:#fff;
+
+    border:none;
+}
