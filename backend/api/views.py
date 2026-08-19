@@ -420,8 +420,10 @@ def delete_variant(request, sellerid, variant_id):
         )
     except ProductVariant.DoesNotExist:
         return Response({"error": "Variant not found"}, status=status.HTTP_404_NOT_FOUND)
-
+    product = variant.prod_id
     variant.delete()
+    if not ProductVariant.objects.filter(prod_id=product).exists():
+        product.delete()
     return Response({"message": "Deleted successfully"})
 
 
@@ -432,7 +434,7 @@ def delete_variant(request, sellerid, variant_id):
 def product_list(request):
     products = Product.objects.select_related("cat_id", "brand_id").prefetch_related(
         "variants__color_id", "variants__size_id", "variants__image_id", "images"
-    )
+    ).filter(variants__stockquantity__gt=0).distinct()
 
     category = request.query_params.get("category")
     if category:

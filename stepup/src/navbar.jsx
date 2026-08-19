@@ -67,29 +67,104 @@ export default function Navbar() {
       </div>
 
       {!isSellerPage ? (
-        <>
-          <div className={`navLinks ${mobileMenuOpen ? 'mobileOpen' : ''}`}>
-            <button type="button" 
-            className={`navLinkBtn ${location.pathname === "/" ? "activeNav" : ""}`}
-             onClick={() => handleNavClick('/')}>
-              Home
-             </button>
-            <button type="button" 
-            className={`navLinkBtn ${location.pathname === "/men" ? "activeNav" : ""}`} 
-             onClick={() => handleNavClick('/men')}>
-              Men
-              </button>
-            <button type="button" 
-            className={`navLinkBtn ${location.pathname === "/women" ? "activeNav" : ""}`}
-             onClick={() => handleNavClick('/women')}>
-              Women
-              </button>
-            <button type="button" 
-            className={`navLinkBtn ${location.pathname === "/kids" ? "activeNav" : ""}`}
-             onClick={() => handleNavClick('/kids')}>
-              Kids
-              </button>
-          </div>
+        <><>
+<div className="navLinks desktopNav">
+
+<button
+type="button"
+className={`navLinkBtn ${location.pathname === "/" ? "activeNav" : ""}`}
+onClick={() => handleNavClick('/')}
+>
+Home
+</button>
+
+<button
+type="button"
+className={`navLinkBtn ${location.pathname === "/men" ? "activeNav" : ""}`}
+onClick={() => handleNavClick('/men')}
+>
+Men
+</button>
+
+<button
+type="button"
+className={`navLinkBtn ${location.pathname === "/women" ? "activeNav" : ""}`}
+onClick={() => handleNavClick('/women')}
+>
+Women
+</button>
+
+<button
+type="button"
+className={`navLinkBtn ${location.pathname === "/kids" ? "activeNav" : ""}`}
+onClick={() => handleNavClick('/kids')}
+>
+Kids
+</button>
+
+</div>
+
+{mobileMenuOpen && (
+
+<>
+
+<div
+className="mobileOverlay"
+onClick={() => setMobileMenuOpen(false)}
+/>
+
+<div className="mobileDrawer">
+  <div className="drawerHeader">
+
+<h2>STEPUP</h2>
+
+<button
+className="drawerClose"
+onClick={() => setMobileMenuOpen(false)}
+>
+
+<X size={22}/>
+
+</button>
+
+</div>
+
+<button onClick={() => handleNavClick("/")}>Home</button>
+
+<button onClick={() => handleNavClick("/men")}>Men</button>
+
+<button onClick={() => handleNavClick("/women")}>Women</button>
+
+<button onClick={() => handleNavClick("/kids")}>Kids</button>
+
+<hr/>
+
+<button onClick={toggleTheme}>
+{theme === "light" ? "Dark Mode" : "Light Mode"}
+</button>
+
+<button onClick={() => navigate("/signin")}>
+Seller Portal
+</button>
+
+<button onClick={() => user?.userid ? navigate('/wishlist') : navigate('/userLogin')}>
+Wishlist
+</button>
+
+<button onClick={() => user?.userid ? navigate('/cart') : navigate('/userLogin')}>
+Cart
+</button>
+
+<button onClick={() => user?.userid ? navigate('/userProfile') : navigate('/userLogin')}>
+Profile
+</button>
+
+</div>
+
+</>
+
+)}
+</>
 
           <form className="searchBar" onSubmit={handleSearch} style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
             <Search className="searchIcon" size={18} />

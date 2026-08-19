@@ -105,8 +105,7 @@ class Product(models.Model):
         related_name="products",
     )
     prod_name = models.CharField(db_column="Prod_Name", max_length=30)
-    dscrptn = models.CharField(db_column="Dscrptn", max_length=50, blank=True, null=True)
-
+    dscrptn = models.TextField(db_column="Dscrptn", blank=True, null=True)
     class Meta:
         db_table = "Product"
         managed = True
