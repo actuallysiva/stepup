@@ -227,3 +227,198 @@
     background:#ef4444;
     color:#fff;
 }
+/* ========================================
+   RESPONSIVE PROFILES STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .profileContainer {
+        margin: 32px auto;
+    }
+
+    .profileHeader {
+        padding: 28px;
+    }
+
+    .profileAvatar {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+    }
+
+    .profileHeader h2 {
+        font-size: 1.6rem;
+    }
+
+    .profileInfo {
+        padding: 28px;
+    }
+
+    .profileInfo h3 {
+        font-size: 1.2rem;
+    }
+
+    .profileStats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .statBox {
+        padding: 24px;
+    }
+
+    .statBox h3 {
+        font-size: 30px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .profileContainer {
+        margin: 24px auto;
+        padding: 0 16px;
+    }
+
+    .profileCard {
+        border-radius: 20px;
+    }
+
+    .profileHeader {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+    }
+
+    .profileAvatar {
+        width: 70px;
+        height: 70px;
+        font-size: 26px;
+    }
+
+    .profileHeader h2 {
+        font-size: 1.4rem;
+    }
+
+    .profileHeader p {
+        font-size: 14px;
+    }
+
+    .profileInfo {
+        padding: 24px 20px;
+    }
+
+    .profileInfo h3 {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    .profileRow {
+        padding: 14px 0;
+        font-size: 14px;
+    }
+
+    .profilePageTitle {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .profileStats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 32px 0;
+    }
+
+    .statBox {
+        padding: 16px;
+    }
+
+    .statBox h3 {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+
+    .statBox p {
+        font-size: 13px;
+    }
+
+    .profileOrders h3 {
+        font-size: 20px;
+    }
+
+    .orderRow {
+        padding: 14px 0;
+        font-size: 14px;
+    }
+
+    .profileActions {
+        flex-direction: column;
+        margin-top: 32px;
+    }
+
+    .profileActions button {
+        height: 50px;
+        font-size: 15px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .profileContainer {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    .profileHeader {
+        padding: 20px 16px;
+    }
+
+    .profileAvatar {
+        width: 60px;
+        height: 60px;
+        font-size: 22px;
+    }
+
+    .profileHeader h2 {
+        font-size: 1.2rem;
+    }
+
+    .profileInfo {
+        padding: 20px 16px;
+    }
+
+    .profileInfo h3 {
+        font-size: 1rem;
+    }
+
+    .profileRow {
+        padding: 12px 0;
+        font-size: 13px;
+    }
+
+    .profilePageTitle {
+        font-size: 1.6rem;
+    }
+
+    .statBox {
+        padding: 12px;
+    }
+
+    .statBox h3 {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+
+    .statBox p {
+        font-size: 12px;
+    }
+
+    .orderRow {
+        font-size: 13px;
+    }
+
+    .profileActions button {
+        height: 48px;
+        font-size: 14px;
+    }
+}

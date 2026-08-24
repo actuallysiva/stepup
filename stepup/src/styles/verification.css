@@ -133,10 +133,22 @@
 }
 
 .verifyOtp a {
-  color: var(--accent-primary);
-  text-decoration: none;
   display: inline-block;
+  padding: 12px 24px;
   margin-bottom: 30px;
+  background: var(--accent-gradient);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.verifyOtp a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
 }
 
 .verifyButton button {
@@ -188,4 +200,169 @@
 
     padding:60px;
 
+}
+/* ========================================
+   RESPONSIVE VERIFICATION STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .verificationCard {
+        max-width: 680px;
+        padding: 48px;
+    }
+
+    .verificationCard h2 {
+        font-size: 30px;
+    }
+
+    .verificationIcon {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .verificationPage {
+        padding: 20px;
+    }
+
+    .verificationCard {
+        max-width: 100%;
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .verificationIcon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 20px;
+    }
+
+    .verificationCard h2 {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .verificationText {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
+    .verifyMobile {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .phoneInputWrapper {
+        height: 52px;
+    }
+
+    .phoneInputWrapper input {
+        font-size: 15px;
+    }
+
+    .verifyMobile button {
+        width: 100%;
+        height: 52px;
+        font-size: 14px;
+    }
+
+    .verifyOtp h3 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .otpGroup {
+        gap: 10px;
+    }
+
+    .otpGroup input {
+        width: 52px;
+        height: 56px;
+        font-size: 20px;
+    }
+
+    .otpInfo {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .verifyOtp a {
+        width: 100%;
+        padding: 12px 20px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .verifyButton button {
+        height: 52px;
+        font-size: 15px;
+    }
+
+    .checkoutContent {
+        padding: 40px 20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .verificationPage {
+        padding: 16px;
+    }
+
+    .verificationCard {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .verificationIcon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .verificationCard h2 {
+        font-size: 22px;
+    }
+
+    .verificationText {
+        font-size: 13px;
+    }
+
+    .phoneInputWrapper {
+        height: 48px;
+        padding: 0 14px;
+    }
+
+    .phoneInputWrapper input {
+        font-size: 14px;
+    }
+
+    .verifyMobile button {
+        height: 48px;
+        font-size: 13px;
+    }
+
+    .otpGroup input {
+        width: 46px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .verifyOtp a {
+        padding: 10px 18px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .verifyButton button {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .checkoutContent {
+        padding: 32px 16px;
+    }
 }

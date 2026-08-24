@@ -180,3 +180,124 @@
 
     text-align:center;
 }
+
+/* ========================================
+   RESPONSIVE SELLER LOGIN PAGE STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .sellerAuthPage {
+        padding: 30px;
+    }
+
+    .sellerLoginCard {
+        max-width: 420px;
+        padding: 40px;
+        border-radius: 20px;
+    }
+
+    .sellerLoginCard h1 {
+        font-size: 30px;
+    }
+
+    .sellerBrand h3 {
+        font-size: 13px;
+    }
+
+    .sellerBrand span {
+        font-size: 13px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .sellerAuthPage {
+        padding: 20px;
+    }
+
+    .sellerLoginCard {
+        max-width: 100%;
+        padding: 32px 24px;
+        border-radius: 16px;
+    }
+
+    .sellerBrand {
+        margin-bottom: 28px;
+    }
+
+    .sellerBrand h3 {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .sellerBrand span {
+        font-size: 12px;
+    }
+
+    .sellerLoginCard h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .sellerSubtitle {
+        font-size: 14px;
+        margin-bottom: 32px;
+        line-height: 1.6;
+    }
+
+    .input-group {
+        margin-bottom: 16px;
+    }
+
+    .sellerInput {
+        height: 52px;
+        padding: 0 16px;
+        border-radius: 14px;
+        font-size: 15px;
+    }
+
+    .sellerLoginBtn {
+        height: 52px;
+        font-size: 15px;
+        border-radius: 14px;
+    }
+
+    .sellerLinks {
+        margin-top: 24px;
+        font-size: 13px;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .statusMsg.error {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+    .sellerAuthPage {
+        padding: 16px;
+    }
+
+    .sellerLoginCard {
+        padding: 28px 20px;
+    }
+
+    .sellerLoginCard h1 {
+        font-size: 24px;
+    }
+
+    .sellerInput {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .sellerLoginBtn {
+        height: 48px;
+        font-size: 14px;
+    }
+}

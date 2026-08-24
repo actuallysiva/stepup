@@ -431,3 +431,206 @@ color:#fff;
 
 cursor:pointer;
 }
+/* ========================================
+   RESPONSIVE INVENTORY STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .inventoryHeader h1 {
+        font-size: 34px;
+    }
+
+    .inventoryStats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .summaryCard {
+        padding: 24px;
+    }
+
+    .inventorySearch {
+        flex-direction: column;
+    }
+
+    .inventorySearch button {
+        width: 100%;
+        max-width: 100%;
+        height: 56px;
+        font-size: 15px;
+    }
+
+    .inventoryCard {
+        padding: 20px;
+    }
+
+    .inventoryCard img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .inventoryHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .inventoryHeader h1 {
+        font-size: 28px;
+    }
+
+    .uploadProductBtn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .inventoryStats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .summaryCard {
+        padding: 16px;
+    }
+
+    .summaryIcon {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 12px;
+    }
+
+    .summaryCard h4 {
+        font-size: 14px;
+    }
+
+    .summaryCard p {
+        font-size: 13px;
+    }
+
+    .inventorySearch {
+        gap: 12px;
+    }
+
+    .searchInput {
+        height: 52px;
+    }
+
+    .inventorySearch button {
+        width: 100%;
+        max-width: 100%;
+        height: 52px;
+        font-size: 14px;
+    }
+
+    .inventoryFilters {
+        flex-direction: column;
+    }
+
+    .inventoryFilters select {
+        width: 100%;
+    }
+
+    .inventoryCard {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .inventoryCard img {
+        width: 100%;
+        height: 180px;
+    }
+
+    .inventoryFooter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .emptyInventory {
+        padding: 50px 30px;
+    }
+
+    .emptyInventory h2 {
+        font-size: 22px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .inventoryHeader h1 {
+        font-size: 24px;
+    }
+
+    .inventoryHeader p {
+        font-size: 13px;
+    }
+
+    .uploadProductBtn {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .summaryCard {
+        padding: 16px;
+    }
+
+    .summaryIcon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .searchInput {
+        height: 48px;
+        padding: 0 14px;
+    }
+
+    .inventorySearch button {
+        width: 100%;
+        max-width: 100%;
+        height: 48px;
+        font-size: 13px;
+    }
+
+    .inventoryCard {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .inventoryCard img {
+        height: 150px;
+    }
+
+    .inventoryInfo h3 {
+        font-size: 16px;
+    }
+
+    .inventoryInfo p {
+        font-size: 13px;
+    }
+
+    .productMeta span {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .emptyInventory {
+        padding: 40px 20px;
+    }
+
+    .emptyInventory h2 {
+        font-size: 18px;
+    }
+
+    .emptyInventory p {
+        font-size: 13px;
+    }
+
+    .emptyInventory button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}

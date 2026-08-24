@@ -180,3 +180,132 @@
     font-weight:600;
 
 }
+
+/* ========================================
+   RESPONSIVE PRODUCT CARD STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .productCard {
+        border-radius: 16px;
+    }
+
+    .productInfo {
+        padding: 16px;
+        gap: 8px;
+    }
+
+    .productName {
+        font-size: 1.1rem;
+    }
+
+    .productColor {
+        font-size: 0.9rem;
+    }
+
+    .productPrice {
+        font-size: 1.15rem;
+    }
+
+    .productSize {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .productCard {
+        border-radius: 14px;
+        box-shadow: 0 6px 20px rgba(0,0,0,.06);
+    }
+
+    .productCard:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 32px rgba(0,0,0,.14);
+    }
+
+    .productImage {
+        aspect-ratio: 1 / 1;
+    }
+
+    .productImage img {
+        width: 90%;
+        height: 90%;
+    }
+
+    .productInfo {
+        padding: 14px;
+        gap: 6px;
+    }
+
+    .productName {
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    .productColor {
+        font-size: 0.85rem;
+    }
+
+    .productFooter {
+        margin-top: 4px;
+    }
+
+    .productPrice {
+        font-size: 1.1rem;
+    }
+
+    .productSize {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+
+    .imagePlaceholder span {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .productCard {
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,.05);
+    }
+
+    .productCard:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
+
+    .productInfo {
+        padding: 12px;
+        gap: 4px;
+    }
+
+    .productName {
+        font-size: 0.95rem;
+    }
+
+    .productColor {
+        font-size: 0.8rem;
+    }
+
+    .productPrice {
+        font-size: 1rem;
+    }
+
+    .productSize {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+
+    .imagePlaceholder {
+        gap: 8px;
+    }
+
+    .imagePlaceholder span {
+        font-size: 0.8rem;
+    }
+}

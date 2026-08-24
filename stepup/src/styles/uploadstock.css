@@ -297,3 +297,142 @@
 
     margin-top:10px;
 }
+/* ========================================
+   RESPONSIVE UPLOAD STOCK STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .containerUploadStock {
+        max-width: 1000px;
+    }
+
+    .uploadHeader {
+        padding: 32px;
+    }
+
+    .uploadHeader h1 {
+        font-size: 34px;
+    }
+
+    .productSection,
+    .variantsSection {
+        padding: 28px;
+    }
+
+    .sectionHeading {
+        font-size: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .containerUploadStock {
+        max-width: 100%;
+    }
+
+    .uploadHeader {
+        padding: 28px 24px;
+        border-radius: 20px;
+    }
+
+    .uploadHeader h1 {
+        font-size: 28px;
+    }
+
+    .uploadHeader p {
+        font-size: 14px;
+    }
+
+    .productSection,
+    .variantsSection {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .sectionHeading {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .containerInput {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .containerInput input,
+    .containerInput select,
+    .containerInput textarea {
+        height: 52px;
+        font-size: 14px;
+    }
+
+    .containerInput textarea {
+        height: 120px;
+    }
+
+    .variantRow {
+        padding: 20px;
+    }
+
+    .addVariantBtn {
+        width: 100%;
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .uploadActions {
+        flex-direction: column;
+    }
+
+    .uploadActions button {
+        width: 100%;
+        height: 50px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .uploadHeader {
+        padding: 24px 20px;
+    }
+
+    .uploadHeader h1 {
+        font-size: 24px;
+    }
+
+    .productSection,
+    .variantsSection {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .sectionHeading {
+        font-size: 16px;
+    }
+
+    .containerInput input,
+    .containerInput select {
+        height: 48px;
+        padding: 0 16px;
+    }
+
+    .containerInput textarea {
+        height: 100px;
+        padding: 14px 16px;
+    }
+
+    .variantRow {
+        padding: 16px;
+    }
+
+    .addVariantBtn {
+        height: 46px;
+        font-size: 13px;
+    }
+
+    .uploadActions button {
+        height: 46px;
+        font-size: 14px;
+    }
+}

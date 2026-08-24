@@ -267,83 +267,94 @@ transform:translateY(-2px);
     }
 
 }
-@media (max-width:992px){
+/* ========================================
+   RESPONSIVE NAVBAR STYLES
+   ======================================== */
 
-    .desktopNav{
-
-        display:none;
+/* Tablet */
+@media (max-width: 992px) {
+    .desktopNav {
+        display: none;
     }
 
-    .mobileMenuBtn{
-
-        display:flex;
+    .mobileMenuBtn {
+        display: flex;
     }
 
-    .searchBar{
-
-        width:260px;
+    .searchBar {
+        width: 260px;
     }
-
 }
-@media (max-width:768px){
 
-    .navbar{
-
-        padding:0 16px;
+/* Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 16px;
+        height: 60px;
     }
 
-    .logoCard h2{
-
-        font-size:1.5rem;
+    .navbarLeft {
+        gap: 20px;
     }
 
-    .searchBar{
-
-        display:none;
+    .logoCard h2 {
+        font-size: 1.5rem;
     }
 
-    .sellerBtn{
-
-        display:none;
+    .searchBar {
+        display: none;
     }
 
-    .sidebuttons{
-
-        gap:8px;
+    .sellerBtn {
+        display: none;
     }
 
-    .sidebuttons button{
-
-        min-width:40px;
-
-        height:40px;
-
-        padding:0 10px;
+    .sidebuttons {
+        gap: 8px;
     }
 
+    .sidebuttons button {
+        min-width: 40px;
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .mobileDrawer {
+        width: 300px;
+    }
 }
-@media (max-width:480px){
 
-    .navbarLeft{
-
-        gap:14px;
+/* Small Mobile */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 12px;
+        height: 56px;
     }
 
-    .logoCard h2{
-
-        font-size:1.3rem;
+    .navbarLeft {
+        gap: 14px;
     }
 
-    .sidebuttons{
-
-        gap:4px;
+    .logoCard h2 {
+        font-size: 1.3rem;
     }
 
-    .sidebuttons button{
-
-        min-width:36px;
-
-        height:36px;
+    .sidebuttons {
+        gap: 4px;
     }
 
+    .sidebuttons button {
+        min-width: 36px;
+        height: 36px;
+        padding: 0 8px;
+    }
+
+    .mobileDrawer {
+        width: 280px;
+        padding: 20px;
+    }
+
+    .mobileDrawer h2 {
+        font-size: 24px;
+    }
 }

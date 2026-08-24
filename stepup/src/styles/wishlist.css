@@ -39,6 +39,7 @@
   overflow: hidden;
   transition: var(--transition-normal);
   box-shadow: var(--shadow-md);
+  padding: 20px;
 }
 
 .wishlistCard:hover {
@@ -119,4 +120,131 @@
 
 .removeBtn{
  
+}
+/* ========================================
+   RESPONSIVE WISHLIST STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .wishlistContainer {
+        padding: 32px 40px;
+    }
+
+    .wishlistHeader h1 {
+        font-size: 36px;
+    }
+
+    .wishlistGrid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .wishlistContainer {
+        padding: 24px 20px;
+    }
+
+    .wishlistHeader {
+        margin-bottom: 32px;
+    }
+
+    .wishlistHeader h1 {
+        font-size: 28px;
+    }
+
+    .wishlistHeader p {
+        font-size: 14px;
+    }
+
+    .wishlistGrid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .wishlistCard {
+        border-radius: 16px;
+    }
+
+    .wishlistDetails {
+        padding: 16px;
+    }
+
+    .wishlistDetails h3 {
+        font-size: 15px;
+    }
+
+    .wishlistDetails p {
+        font-size: 13px;
+    }
+
+    .wishlistDetails h4 {
+        font-size: 18px;
+    }
+
+    .wishlistActions button {
+        height: 46px;
+        font-size: 14px;
+    }
+
+    .moveBtn {
+        height: 48px;
+    }
+
+    .wishlistActions .removeBtn {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .wishlistContainer {
+        padding: 20px 16px;
+    }
+
+    .wishlistHeader h1 {
+        font-size: 24px;
+    }
+
+    .wishlistGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .wishlistDetails {
+        padding: 14px;
+    }
+
+    .wishlistDetails h3 {
+        font-size: 14px;
+    }
+
+    .wishlistDetails p {
+        font-size: 12px;
+    }
+
+    .wishlistDetails h4 {
+        font-size: 16px;
+    }
+
+    .wishlistActions {
+        gap: 10px;
+    }
+
+    .wishlistActions button {
+        height: 44px;
+        font-size: 13px;
+    }
+
+    .moveBtn {
+        height: 46px;
+    }
+
+    .wishlistActions .removeBtn {
+        width: 46px;
+        height: 46px;
+    }
 }

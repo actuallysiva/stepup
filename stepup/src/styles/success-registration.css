@@ -137,3 +137,84 @@
     }
 
 }
+
+/* ========================================
+   RESPONSIVE SUCCESS REGISTRATION STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .successRegistrationCard {
+        max-width: 620px;
+        padding: 40px;
+    }
+
+    .imageContainer img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .successRegistrationCard {
+        max-width: 100%;
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .imageContainer img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .successFeatures {
+        padding: 20px;
+        margin: 28px 0;
+    }
+
+    .successFeatures div {
+        font-size: 14px;
+    }
+
+    .successButtons {
+        margin-top: 28px;
+        gap: 14px;
+    }
+
+    .successButtons .secondaryBtn {
+        height: 52px;
+        font-size: 15px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .successRegistrationCard {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .imageContainer img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .successFeatures {
+        padding: 16px;
+        margin: 24px 0;
+    }
+
+    .successFeatures div {
+        font-size: 13px;
+    }
+
+    .successButtons {
+        margin-top: 24px;
+    }
+
+    .successButtons .secondaryBtn {
+        height: 48px;
+        font-size: 14px;
+    }
+}

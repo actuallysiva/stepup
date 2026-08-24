@@ -303,3 +303,144 @@
   transform: translateY(-3px);
   box-shadow: var(--shadow-glow);
 }
+
+/* ========================================
+   RESPONSIVE CART PAGE STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .cartContainer {
+        max-width: 1200px;
+    }
+
+    .cartContent {
+        gap: 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cartContainer {
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+
+    .cartHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .cartHeader h1 {
+        font-size: 1.6rem;
+    }
+
+    .cartContent {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .cartItem {
+        flex-direction: column;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .cartItem img {
+        width: 100%;
+        height: 180px;
+    }
+
+    .cartItemInfo h3 {
+        font-size: 1.3rem;
+    }
+
+    .cartVariant {
+        font-size: 0.9rem;
+    }
+
+    .cartPrice {
+        font-size: 1.3rem;
+    }
+
+    .cartSummary {
+        position: static;
+        padding: 20px;
+    }
+
+    .cartSummary h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .billRow {
+        padding: 12px 0;
+        font-size: 0.95rem;
+    }
+
+    .totalRow {
+        font-size: 1.2rem;
+        padding-top: 16px;
+    }
+
+    .checkoutBtn {
+        height: 50px;
+        font-size: 15px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .cartContainer {
+        padding: 0 12px;
+        margin: 16px auto;
+    }
+
+    .cartHeader h1 {
+        font-size: 1.4rem;
+    }
+
+    .cartItem {
+        padding: 12px;
+        border-radius: var(--radius-md);
+    }
+
+    .cartItem img {
+        height: 150px;
+    }
+
+    .cartItemInfo h3 {
+        font-size: 1.1rem;
+    }
+
+    .cartQuantity {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cartQuantity button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .removeBtn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .cartSummary {
+        padding: 16px;
+        border-radius: var(--radius-md);
+    }
+
+    .cartSummary h2 {
+        font-size: 1.4rem;
+    }
+
+    .checkoutBtn {
+        height: 48px;
+        font-size: 14px;
+    }
+}

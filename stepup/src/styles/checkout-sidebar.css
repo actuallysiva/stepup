@@ -260,3 +260,114 @@
 
     border:none;
 }
+
+/* ========================================
+   RESPONSIVE CHECKOUT SIDEBAR STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .checkoutSteps {
+        width: 260px;
+        padding: 32px 20px;
+    }
+
+    .checkoutContent {
+        padding: 32px 40px;
+    }
+
+    .stepCircle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .stepText h4 {
+        font-size: 14px;
+    }
+
+    .stepText p {
+        font-size: 11px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .checkoutLayout {
+        flex-direction: column;
+    }
+
+    .checkoutSteps {
+        width: 100%;
+        position: static;
+        height: auto;
+        padding: 24px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .checkoutContent {
+        padding: 24px 20px;
+    }
+
+    .stepsList {
+        margin-bottom: 24px;
+    }
+
+    .stepWrapper {
+        margin-bottom: 20px;
+    }
+
+    .checkoutInfo {
+        padding-top: 24px;
+    }
+
+    .checkoutInfoCard {
+        padding: 12px;
+    }
+
+    .checkoutInfoCard h4 {
+        font-size: 14px;
+    }
+
+    .checkoutInfoCard p {
+        font-size: 12px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .checkoutSteps {
+        padding: 20px 16px;
+    }
+
+    .checkoutContent {
+        padding: 20px 16px;
+    }
+
+    .stepCircle {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .stepItem {
+        gap: 10px;
+    }
+
+    .stepText h4 {
+        font-size: 13px;
+    }
+
+    .stepText p {
+        font-size: 10px;
+    }
+
+    .checkoutInfoCard {
+        padding: 10px;
+    }
+
+    .checkoutIcon {
+        width: 18px;
+        height: 18px;
+    }
+}

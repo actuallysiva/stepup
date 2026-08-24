@@ -117,6 +117,92 @@
     }
 
 }
+
+/* ========================================
+   RESPONSIVE REGSELLER STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .sellerRegisterCard {
+        max-width: 800px;
+        padding: 40px;
+    }
+
+    .registerSectionTitle {
+        font-size: 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sellerRegisterCard {
+        max-width: 100%;
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .registerGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 28px;
+    }
+
+    .fullWidth {
+        grid-column: auto;
+    }
+
+    .registerSectionTitle {
+        font-size: 17px;
+        margin-bottom: 16px;
+    }
+
+    .sellerInput {
+        height: 52px;
+        font-size: 14px;
+    }
+
+    .sellerRegisterBtn {
+        height: 52px;
+        font-size: 15px;
+    }
+
+    .backLink {
+        margin: 20px 0 28px;
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .sellerRegisterCard {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .registerGrid {
+        gap: 14px;
+    }
+
+    .registerSectionTitle {
+        font-size: 16px;
+    }
+
+    .sellerInput {
+        height: 48px;
+        padding: 0 16px;
+        font-size: 14px;
+    }
+
+    .sellerRegisterBtn {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .backLink {
+        font-size: 12px;
+    }
+}
 .backLink{
 
     display:inline-flex;

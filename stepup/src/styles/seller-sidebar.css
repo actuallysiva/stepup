@@ -179,3 +179,87 @@
 
     background:#16a34a;
 }
+/* ========================================
+   RESPONSIVE SELLER SIDEBAR STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .sellerSidebar {
+        width: 240px;
+        padding: 20px;
+    }
+
+    .sellerSidebarBrand {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
+    .sellerSidebarBrand h3 {
+        font-size: 15px;
+    }
+
+    .sellerNavItem {
+        height: 44px;
+        padding: 0 14px;
+        font-size: 14px;
+    }
+
+    .sellerLogout {
+        height: 44px;
+        padding: 0 14px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sellerSidebar {
+        width: 100%;
+        position: fixed;
+        left: -100%;
+        top: 64px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+
+    .sellerSidebar.open {
+        left: 0;
+    }
+
+    .sellerSidebarBrand {
+        margin-bottom: 24px;
+    }
+
+    .sellerNavItem {
+        height: 48px;
+        padding: 0 16px;
+    }
+
+    .sellerLogout {
+        height: 48px;
+        padding: 0 16px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .sellerSidebar {
+        padding: 20px 16px;
+    }
+
+    .sellerSidebarBrand h3 {
+        font-size: 14px;
+    }
+
+    .sellerSidebarBrand span {
+        font-size: 12px;
+    }
+
+    .sellerNavItem {
+        font-size: 13px;
+    }
+
+    .sellerLogout {
+        font-size: 13px;
+    }
+}

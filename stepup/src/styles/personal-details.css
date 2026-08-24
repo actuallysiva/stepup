@@ -211,3 +211,120 @@
 
     margin-top:18px;
 }
+
+/* ========================================
+   RESPONSIVE PERSONAL DETAILS STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .checkoutFormCard {
+        max-width: 700px;
+        padding: 48px;
+    }
+
+    .checkoutFormCard h2 {
+        font-size: 28px;
+    }
+
+    .pageIcon {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .checkoutFormCard {
+        max-width: 100%;
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .pageIcon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 20px;
+    }
+
+    .checkoutFormCard h2 {
+        font-size: 24px;
+    }
+
+    .formSubtitle {
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+
+    .sectionTitle {
+        margin: 28px 0 14px;
+    }
+
+    .sectionTitle h3 {
+        font-size: 16px;
+    }
+
+    .formInput {
+        height: 52px;
+        font-size: 15px;
+    }
+
+    .doubleInput {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .paymentOption label {
+        padding: 14px;
+    }
+
+    .continueBtn {
+        height: 52px;
+        font-size: 15px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .checkoutFormCard {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .pageIcon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .checkoutFormCard h2 {
+        font-size: 20px;
+    }
+
+    .formSubtitle {
+        font-size: 13px;
+    }
+
+    .sectionTitle h3 {
+        font-size: 15px;
+    }
+
+    .formInput {
+        height: 48px;
+        padding: 0 16px;
+        font-size: 14px;
+    }
+
+    .paymentOption label {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .paymentOption small {
+        font-size: 12px;
+    }
+
+    .continueBtn {
+        height: 48px;
+        font-size: 14px;
+    }
+}

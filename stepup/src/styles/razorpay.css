@@ -257,3 +257,177 @@
 
     box-shadow: none;
 }
+/* ========================================
+   RESPONSIVE RAZORPAY STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .razorpayCard {
+        max-width: 650px;
+        padding: 40px;
+    }
+
+    .razorpayHeader h2 {
+        font-size: 28px;
+    }
+
+    .paymentAmountCard {
+        padding: 24px;
+    }
+
+    .paymentAmountCard h2 {
+        font-size: 32px;
+    }
+
+    .paymentInfoCard {
+        padding: 24px;
+    }
+
+    .paymentActions button:first-child {
+        width: 100%;
+        max-width: 100%;
+        flex: 1;
+    }
+
+    .paymentActions .secondaryBtn {
+        width: 100%;
+        max-width: 100%;
+        flex: 1;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .razorpayCard {
+        max-width: 100%;
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .razorpayHeader {
+        margin-bottom: 40px;
+    }
+
+    .razorpayHeader h2 {
+        font-size: 24px;
+    }
+
+    .razorpayHeader p {
+        font-size: 14px;
+    }
+
+    .paymentAmountCard {
+        padding: 20px;
+        margin-bottom: 32px;
+    }
+
+    .paymentAmountCard h2 {
+        font-size: 30px;
+    }
+
+    .paymentInfoCard {
+        padding: 20px;
+        margin-bottom: 32px;
+    }
+
+    .paymentInfoCard h3 {
+        font-size: 16px;
+    }
+
+    .paymentInfoCard li {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+
+    .secureInfo {
+        padding: 14px;
+        margin-top: 20px;
+        margin-bottom: 28px;
+    }
+
+    .paymentActions {
+        flex-direction: column;
+    }
+
+    .paymentActions button:first-child {
+        width: 100%;
+        max-width: 100%;
+        height: 52px;
+        font-size: 15px;
+        flex: 1;
+    }
+
+    .paymentActions .secondaryBtn {
+        width: 100%;
+        max-width: 100%;
+        height: 52px;
+        flex: 1;
+    }
+
+    .paymentMethods h3 {
+        font-size: 22px;
+    }
+
+    .methodItem {
+        font-size: 16px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .razorpayCard {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .razorpayHeader h2 {
+        font-size: 20px;
+    }
+
+    .razorpayHeader p {
+        font-size: 13px;
+    }
+
+    .paymentAmountCard {
+        padding: 16px;
+    }
+
+    .paymentAmountCard h2 {
+        font-size: 26px;
+    }
+
+    .paymentInfoCard {
+        padding: 16px;
+    }
+
+    .paymentInfoCard h3 {
+        font-size: 15px;
+    }
+
+    .paymentInfoCard li {
+        font-size: 13px;
+    }
+
+    .secureInfo {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .paymentActions button:first-child,
+    .paymentActions .secondaryBtn {
+        width: 100%;
+        max-width: 100%;
+        height: 48px;
+        font-size: 14px;
+        flex: 1;
+    }
+
+    .paymentMethods h3 {
+        font-size: 18px;
+    }
+
+    .methodItem {
+        font-size: 14px;
+    }
+}

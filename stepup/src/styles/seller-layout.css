@@ -21,3 +21,31 @@
 
     overflow-x:hidden;
 }
+/* ========================================
+   RESPONSIVE SELLER LAYOUT STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .sellerContent {
+        padding: 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sellerLayout {
+        flex-direction: column;
+    }
+
+    .sellerContent {
+        padding: 20px 16px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .sellerContent {
+        padding: 16px 12px;
+    }
+}

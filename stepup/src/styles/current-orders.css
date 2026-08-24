@@ -307,3 +307,184 @@
 
     font-weight:600;
 }
+
+/* ========================================
+   RESPONSIVE CURRENT ORDERS STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .availableContainer {
+        max-width: 1000px;
+    }
+
+    .ordersHeader {
+        padding: 28px;
+    }
+
+    .ordersHeader h1 {
+        font-size: 32px;
+    }
+
+    .orderCard {
+        padding: 24px;
+    }
+
+    .orderTop h2 {
+        font-size: 22px;
+    }
+
+    .orderPrice {
+        font-size: 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .availableContainer {
+        gap: 20px;
+    }
+
+    .ordersHeader {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .ordersHeader h1 {
+        font-size: 28px;
+    }
+
+    .ordersHeader p {
+        font-size: 14px;
+    }
+
+    .orderCard {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .orderTop {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+    }
+
+    .orderTop h2 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .orderTop .orderDate {
+        font-size: 12px;
+        color: var(--text-secondary);
+    }
+
+    .statusBadge {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .orderPrice {
+        font-size: 22px;
+    }
+
+    .customerInfo {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .customerInfo div {
+        font-size: 13px;
+    }
+
+    .orderedItem {
+        padding: 16px;
+    }
+
+    .orderedItem h4 {
+        font-size: 15px;
+    }
+
+    .orderedItem p {
+        font-size: 13px;
+    }
+
+    .orderActions {
+        gap: 12px;
+    }
+
+    .orderActions button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .emptyOrders {
+        padding: 50px 30px;
+        border-radius: 20px;
+    }
+
+    .completedOrder {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .ordersHeader {
+        padding: 20px 16px;
+    }
+
+    .ordersHeader h1 {
+        font-size: 24px;
+    }
+
+    .orderCard {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .orderTop h2 {
+        font-size: 18px;
+    }
+
+    .orderPrice {
+        font-size: 20px;
+    }
+
+    .customerInfo {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .orderedItem {
+        padding: 14px;
+    }
+
+    .orderedItem h4 {
+        font-size: 14px;
+    }
+
+    .orderActions {
+        flex-direction: column;
+    }
+
+    .orderActions button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .emptyOrders {
+        padding: 40px 20px;
+    }
+
+    .emptyOrders h2 {
+        font-size: 18px;
+    }
+
+    .emptyOrders p {
+        font-size: 13px;
+    }
+}

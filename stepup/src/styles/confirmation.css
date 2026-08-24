@@ -288,3 +288,179 @@
 
     color:var(--accent-primary);
 }
+
+/* ========================================
+   RESPONSIVE CONFIRMATION STYLES
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .confirmationCard {
+        max-width: 700px;
+        padding: 48px;
+    }
+
+    .confirmationHeader h2 {
+        font-size: 28px;
+    }
+
+    .itemImage {
+        width: 100px;
+        height: 100px;
+    }
+
+    .itemInfo h4 {
+        font-size: 18px;
+    }
+
+    .confirmationActions button:first-child {
+        width: 100%;
+        max-width: 100%;
+        flex: 1;
+    }
+
+    .confirmationActions .linkBtn {
+        width: 100%;
+        max-width: 100%;
+        flex: 1;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .confirmationCard {
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .confirmationHeader {
+        margin-bottom: 32px;
+    }
+
+    .confirmationHeader h2 {
+        font-size: 24px;
+    }
+
+    .confirmationHeader p {
+        font-size: 14px;
+    }
+
+    .orderItemCard {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .itemImage {
+        width: 100%;
+        height: 160px;
+    }
+
+    .itemInfo h4 {
+        font-size: 16px;
+    }
+
+    .itemInfo p {
+        font-size: 13px;
+    }
+
+    .orderItems h3,
+    .shippingCard h3,
+    .paymentSummary h3,
+    .orderSummary h3 {
+        font-size: 16px;
+    }
+
+    .shippingCard,
+    .paymentMethodCard,
+    .orderSummary {
+        padding: 18px;
+    }
+
+    .billRow {
+        font-size: 14px;
+    }
+
+    .totalRow {
+        font-size: 16px;
+    }
+
+    .confirmationActions {
+        flex-direction: column;
+        margin-top: 32px;
+    }
+
+    .confirmationActions button:first-child {
+        width: 100%;
+        max-width: 100%;
+        height: 52px;
+        font-size: 15px;
+        flex: 1;
+    }
+
+    .confirmationActions .linkBtn {
+        width: 100%;
+        max-width: 100%;
+        height: 52px;
+        flex: 1;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .confirmationCard {
+        padding: 24px 16px;
+        border-radius: 16px;
+    }
+
+    .confirmationHeader h2 {
+        font-size: 20px;
+    }
+
+    .confirmationHeader p {
+        font-size: 13px;
+    }
+
+    .itemImage {
+        height: 140px;
+    }
+
+    .itemInfo h4 {
+        font-size: 15px;
+    }
+
+    .itemInfo h3 {
+        font-size: 16px;
+    }
+
+    .orderItems h3,
+    .shippingCard h3,
+    .paymentSummary h3,
+    .orderSummary h3 {
+        font-size: 15px;
+    }
+
+    .shippingCard,
+    .paymentMethodCard,
+    .orderSummary {
+        padding: 16px;
+    }
+
+    .billRow {
+        font-size: 13px;
+        padding: 12px 0;
+    }
+
+    .totalRow {
+        font-size: 15px;
+        padding-top: 14px;
+    }
+
+    .confirmationActions button:first-child,
+    .confirmationActions .linkBtn {
+        width: 100%;
+        max-width: 100%;
+        height: 48px;
+        font-size: 14px;
+        flex: 1;
+    }
+}
