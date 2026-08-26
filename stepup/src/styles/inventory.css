@@ -79,6 +79,14 @@
     padding:28px;
 
     transition:.25s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    justify-content:center;
 }
 
 .summaryCard:hover{
@@ -102,6 +110,19 @@
     align-items:center;
 
     margin-bottom:18px;
+}
+
+.summaryCard h4{
+    color:var(--text-secondary);
+    margin-bottom:8px;
+    font-size:15px;
+    font-weight:600;
+}
+
+.summaryCard p{
+    color:var(--text-primary);
+    font-size:30px;
+    font-weight:700;
 }
 
 .productsIcon{
@@ -137,7 +158,7 @@
 
     flex:1;
 
-    height:56px;
+    height:52px;
 
     display:flex;
 
@@ -152,11 +173,15 @@
     border:1px solid var(--border-color);
 
     border-radius:18px;
+
 }
 
 .searchInput input{
 
     flex:1;
+    width:100%;
+    min-width:0;
+    height:100%;
 
     background:none;
 
@@ -174,7 +199,7 @@
 
 .inventorySearch button{
 
-    width:140px;
+    min-width:140px;
 
     border:none;
 
@@ -360,38 +385,6 @@ color:var(--text-secondary);
 
 font-size:13px;
 }
-.statusDot{
-
-width:8px;
-
-height:8px;
-
-border-radius:50%;
-
-background:currentColor;
-
-display:inline-block;
-
-margin-right:8px;
-}
-.stockInfo{
-
-display:flex;
-
-flex-direction:column;
-}
-
-.stockInfo small{
-
-color:var(--text-secondary);
-
-margin-bottom:4px;
-}
-
-.stockInfo strong{
-
-font-size:17px;
-}
 .emptyInventory{
 
 padding:80px;
@@ -431,6 +424,12 @@ color:#fff;
 
 cursor:pointer;
 }
+
+.stockInfo{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 /* ========================================
    RESPONSIVE INVENTORY STYLES
    ======================================== */
@@ -450,14 +449,27 @@ cursor:pointer;
         padding: 24px;
     }
 
+    .summaryCard p {
+        font-size: 26px;
+    }
+
     .inventorySearch {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        gap:16px;
+        align-items: center;
+    }
+
+    .searchInput {
+        flex: 1;
+        width: 100%;
+        max-width: none;
     }
 
     .inventorySearch button {
-        width: 100%;
-        max-width: 100%;
-        height: 56px;
+        width: 160px;
+        min-width: 160px;
+        height: 52px;
         font-size: 15px;
     }
 
@@ -490,25 +502,30 @@ cursor:pointer;
 
     .inventoryStats {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 16px;
     }
 
     .summaryCard {
-        padding: 16px;
+        padding: 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
     }
 
     .summaryIcon {
-        width: 44px;
-        height: 44px;
-        margin-bottom: 12px;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0;
     }
 
     .summaryCard h4 {
         font-size: 14px;
+        margin-bottom: 4px;
     }
 
     .summaryCard p {
-        font-size: 13px;
+        font-size: 28px;
     }
 
     .inventorySearch {
@@ -517,11 +534,13 @@ cursor:pointer;
 
     .searchInput {
         height: 52px;
+        width: 100%;
+        flex:none;
     }
 
     .inventorySearch button {
         width: 100%;
-        max-width: 100%;
+        min-width: 100%;
         height: 52px;
         font-size: 14px;
     }
@@ -576,6 +595,7 @@ cursor:pointer;
 
     .summaryCard {
         padding: 16px;
+        gap: 12px;
     }
 
     .summaryIcon {
@@ -583,15 +603,29 @@ cursor:pointer;
         height: 44px;
     }
 
+    .summaryCard h4 {
+        font-size: 13px;
+    }
+
+    .summaryCard p {
+        font-size: 24px;
+    }
+
+    .inventorySearch {
+        flex-direction: column;
+    }
+
     .searchInput {
-        height: 48px;
+        width: 100%;
+        max-width: 100%;
+        height: 52px;
         padding: 0 14px;
     }
 
     .inventorySearch button {
         width: 100%;
-        max-width: 100%;
-        height: 48px;
+        min-width: 100%;
+        height: 52px;
         font-size: 13px;
     }
 

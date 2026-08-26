@@ -53,6 +53,22 @@ export default function Profile() {
     load();
   }, [user?.userid]);
 
+  const handleCancel = () => {
+    const addr = user?.addresses?.[0] || {};
+
+    setForm({
+        name: user?.name || "",
+        email: user?.email || "",
+        home_no: addr.home_no || "",
+        street: addr.street || "",
+        city: addr.city || "",
+        state: addr.state || "",
+        pincode: addr.pincode || "",
+    });
+
+    setEditing(false);
+};
+
   const handleSave = async () => {
     setLoading(true);
     setError('');
@@ -115,7 +131,7 @@ export default function Profile() {
             <input value={form.state} onChange={(e) => setForm({ ...form, state: e.target.value })} placeholder="State" />
             <input value={form.pincode} onChange={(e) => setForm({ ...form, pincode: e.target.value })} placeholder="Pincode" />
             <button type="button" className="editBtn" onClick={handleSave}>Save</button>
-            <button type="button" className="logoutBtn" onClick={() => setEditing(false)}>Cancel</button>
+            <button type="button" className="logoutBtn" onClick={handleCancel}>Cancel</button>
           </div>
         ) : (
           <div className="profileInfo">

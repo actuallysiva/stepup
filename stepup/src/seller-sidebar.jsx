@@ -84,7 +84,7 @@ export default function SellerSidebar() {
       <div className="sellerSidebarBottom">
 
         <NavLink
-          to="/userProfile"
+          to="/dashboardseller"
           className={({ isActive }) =>
             isActive ? "sellerNavItem active" : "sellerNavItem"
           }
