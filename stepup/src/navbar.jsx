@@ -21,6 +21,7 @@ export default function Navbar() {
   const { searchQuery, setSearchQuery, seller, theme, toggleTheme, user } = useApp();
   const [localSearch, setLocalSearch] = useState(searchQuery);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
   useEffect(() => {
     setLocalSearch(searchQuery);
@@ -109,55 +110,123 @@ Kids
 <>
 
 <div
-className="mobileOverlay"
-onClick={() => setMobileMenuOpen(false)}
+    className="mobileOverlay"
+    onClick={() => {
+        setMobileMenuOpen(false);
+        setMobileSearchOpen(false);
+    }}
 />
 
 <div className="mobileDrawer">
   <div className="drawerHeader">
 
-<h2>STEPUP</h2>
+    {!mobileSearchOpen ? (
+        <>
+            <h2>StepUP</h2>
 
-<button
-className="drawerClose"
-onClick={() => setMobileMenuOpen(false)}
->
+            <div className="drawerActions">
 
-<X size={22}/>
+                <button
+                    className="drawerIconBtn"
+                    onClick={() => setMobileSearchOpen(true)}
+                >
+                    <Search size={20}/>
+                </button>
 
-</button>
+                <button
+                    className="drawerClose"
+                    onClick={()=>{
+                        setMobileMenuOpen(false);
+                        setMobileSearchOpen(false);
+                    }}
+                >
+                    <X size={22}/>
+                </button>
+
+            </div>
+        </>
+    ) : (
+
+        <form
+            className="drawerSearch"
+            onSubmit={handleSearch}
+        >
+
+            <button
+                type="button"
+                className="drawerBack"
+                onClick={() => setMobileSearchOpen(false)}
+            >
+                ←
+            </button>
+
+            <input
+                autoFocus
+                placeholder="Search shoes..."
+                value={localSearch}
+                onChange={(e)=>setLocalSearch(e.target.value)}
+            />
+
+            <button
+                type="button"
+                className="drawerClose"
+                onClick={()=>{
+                    setMobileMenuOpen(false);
+                    setMobileSearchOpen(false);
+                }}
+            >
+                <X size={22}/>
+            </button>
+
+        </form>
+
+    )}
 
 </div>
 
-<button onClick={() => handleNavClick("/")}>Home</button>
+{!mobileSearchOpen && (
+    <>
 
-<button onClick={() => handleNavClick("/men")}>Men</button>
-
-<button onClick={() => handleNavClick("/women")}>Women</button>
-
-<button onClick={() => handleNavClick("/kids")}>Kids</button>
-
-<hr/>
-
-<button onClick={toggleTheme}>
-{theme === "light" ? "Dark Mode" : "Light Mode"}
+        <button
+    className="drawerMenuBtn"
+    onClick={() => handleNavClick("/")}
+>
+    Home
+</button>
+<button className="drawerMenuBtn" onClick={() => handleNavClick("/men")}>
+    Men
 </button>
 
-<button onClick={() => navigate("/signin")}>
-Seller Portal
+<button className="drawerMenuBtn" onClick={() => handleNavClick("/women")}>
+    Women
 </button>
 
-<button onClick={() => user?.userid ? navigate('/wishlist') : navigate('/userLogin')}>
-Wishlist
+<button className="drawerMenuBtn" onClick={() => handleNavClick("/kids")}>
+    Kids
 </button>
 
-<button onClick={() => user?.userid ? navigate('/cart') : navigate('/userLogin')}>
-Cart
+<button className="drawerMenuBtn" onClick={toggleTheme}>
+    {theme === "light" ? "Dark Mode" : "Light Mode"}
 </button>
 
-<button onClick={() => user?.userid ? navigate('/userProfile') : navigate('/userLogin')}>
-Profile
+<button className="drawerMenuBtn" onClick={() => navigate("/signin")}>
+    Seller Portal
 </button>
+
+<button className="drawerMenuBtn" onClick={() => user?.userid ? navigate('/wishlist') : navigate('/userLogin')}>
+    Wishlist
+</button>
+
+<button className="drawerMenuBtn" onClick={() => user?.userid ? navigate('/cart') : navigate('/userLogin')}>
+    Cart
+</button>
+
+<button className="drawerMenuBtn" onClick={() => user?.userid ? navigate('/userProfile') : navigate('/userLogin')}>
+    Profile
+</button>
+
+    </>
+)}
 
 </div>
 
@@ -166,7 +235,7 @@ Profile
 )}
 </>
 
-          <form className="searchBar" onSubmit={handleSearch} style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+          <form className="searchBar" onSubmit={handleSearch}>
             <Search className="searchIcon" size={18} />
             <input
               type="text"

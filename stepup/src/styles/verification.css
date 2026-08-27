@@ -54,7 +54,6 @@
 }
 
 .phoneInputWrapper {
-  flex: 1;
   height: 58px;
   background: var(--bg-input);
   border: 1px solid var(--border-color);
@@ -72,6 +71,7 @@
   border-right: 1px solid var(--border-color);
   padding-right: 8px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .phoneInputWrapper input {
@@ -82,6 +82,7 @@
   color: var(--text-primary);
   padding: 0;
   font-size: 17px;
+  min-width: 0;
 }
 
 .verifyMobile button {
@@ -103,21 +104,25 @@
 .otpGroup {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: clamp(5px, 2vw, 12px);
   margin-bottom: 20px;
 }
 
 .otpGroup input {
-  width: 60px;
-  height: 64px;
+  width: clamp(38px, 12vw, 60px);
+  height: clamp(42px, 12vw, 64px);
+
   background: var(--bg-input);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
+
   color: var(--text-primary);
   text-align: center;
-  font-size: 24px;
+
+  font-size: clamp(16px, 4vw, 24px);
   font-weight: 700;
 }
+
 .otpGroup input:focus{
 
     outline:none;
@@ -132,23 +137,36 @@
   margin-bottom: 15px;
 }
 
-.verifyOtp a {
-  display: inline-block;
-  padding: 12px 24px;
-  margin-bottom: 30px;
-  background: var(--accent-gradient);
-  color: white;
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  transition: var(--transition-normal);
+/* ========================================
+   RESEND OTP BUTTON
+======================================== */
+
+.linkBtn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    height:48px;
+    padding:0 22px;
+
+    margin:0 auto 24px;
+
+    border:none;
+    border-radius:14px;
+
+    background:var(--accent-gradient);
+    color:#fff;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:.25s;
 }
 
-.verifyOtp a:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+.linkBtn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-glow);
 }
 
 .verifyButton button {
@@ -257,7 +275,8 @@
     }
 
     .phoneInputWrapper {
-        height: 52px;
+        height: 56px;
+        padding: 0 16px;
     }
 
     .phoneInputWrapper input {
@@ -275,15 +294,6 @@
         margin-bottom: 20px;
     }
 
-    .otpGroup {
-        gap: 10px;
-    }
-
-    .otpGroup input {
-        width: 52px;
-        height: 56px;
-        font-size: 20px;
-    }
 
     .otpInfo {
         font-size: 13px;
@@ -332,7 +342,7 @@
     }
 
     .phoneInputWrapper {
-        height: 48px;
+        height: 54px;
         padding: 0 14px;
     }
 
@@ -345,11 +355,6 @@
         font-size: 13px;
     }
 
-    .otpGroup input {
-        width: 46px;
-        height: 50px;
-        font-size: 18px;
-    }
 
     .verifyOtp a {
         padding: 10px 18px;

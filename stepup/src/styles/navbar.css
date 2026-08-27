@@ -213,6 +213,152 @@ transform:translateY(-2px);
     font-size:28px;
 }
 
+.drawerHeader{
+
+    display:flex;
+
+    align-items:baseline;
+
+    justify-content:space-between;
+}
+
+.drawerActions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.drawerIconBtn,
+.drawerClose{
+
+    width:40px;
+
+    height:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:none;
+
+    color:var(--text-primary);
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.drawerIconBtn:hover,
+.drawerClose:hover{
+
+    background:rgba(59,130,246,.10);
+
+    color:var(--accent-primary);
+}
+
+.drawerSearch{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    animation:drawerSearchIn .2s ease;
+}
+
+.drawerBack{
+
+    width:40px;
+
+    height:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:none;
+
+    color:var(--text-primary);
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.drawerBack:hover{
+
+    background:rgba(59,130,246,.10);
+
+    color:var(--accent-primary);
+}
+
+.drawerSearch input{
+
+    flex:1;
+
+    height:46px;
+
+    padding:0 16px;
+
+    border-radius:14px;
+
+    border:1px solid var(--navbar-search-border);
+
+    background:var(--navbar-search-bg);
+
+    color:var(--text-primary);
+
+    font-size:15px;
+
+    transition:.25s;
+}
+
+.drawerSearch input:focus{
+
+    outline:none;
+
+    border-color:var(--accent-primary);
+
+    box-shadow:0 0 0 3px rgba(59,130,246,.12);
+}
+
+@keyframes drawerSearchIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-8px) scale(.96);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+
 .mobileDrawer hr{
 
     border:none;
@@ -222,11 +368,13 @@ transform:translateY(-2px);
     margin:12px 0;
 }
 
-.mobileDrawer button{
+.drawerMenuBtn{
 
     display:flex;
 
     align-items:center;
+
+    width:100%;
 
     height:48px;
 
@@ -247,7 +395,7 @@ transform:translateY(-2px);
     transition:.25s;
 }
 
-.mobileDrawer button:hover{
+.drawerMenuBtn:hover{
 
     background:rgba(59,130,246,.10);
 
@@ -272,18 +420,20 @@ transform:translateY(-2px);
    ======================================== */
 
 /* Tablet */
-@media (max-width: 992px) {
-    .desktopNav {
-        display: none;
+@media (max-width:992px){
+
+    .desktopNav{
+        display:none;
     }
 
-    .mobileMenuBtn {
-        display: flex;
+    .mobileMenuBtn{
+        display:flex;
     }
 
-    .searchBar {
-        width: 260px;
+    .searchBar{
+        display:none;
     }
+
 }
 
 /* Mobile */
