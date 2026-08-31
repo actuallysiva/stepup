@@ -67,7 +67,8 @@ export function AppProvider({ children }) {
   };
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+      const nextTheme = theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
   };
 
   // Apply theme to document
