@@ -1,4 +1,4 @@
-const API_BASE = "https://stepup-production-a990.up.railway.app";
+const API_BASE = "https://stepup-g1u5.onrender.com/api";
 
 export function resolveImageUrl(url) {
   if (!url) return "https://via.placeholder.com/120";
